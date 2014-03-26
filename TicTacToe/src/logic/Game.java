@@ -7,7 +7,6 @@ public class Game {
 	private final Player xPlayer;
 	private final Player oPlayer;
 	private final Board board;
-	private final ReadOnlyBoardInterface readOnlyBoard;
 	private final Referee referee;
 	private final Presenter presenter;
 
@@ -18,38 +17,37 @@ public class Game {
 		this.oPlayer = oPlayer;
 		this.referee = referee;
 		this.presenter = presenter;
-		this.readOnlyBoard = new ReadOnlyBoard(board);
 	}
 
-	public void play() {
+	public void play(PlayerColor startColor) {
 		GameStatus gameStatus;
-		PlayerColor currentColor = PlayerColor.X;
+		PlayerColor currentColor = startColor;
 
 		MoveListener xMoveListener = new MoveListener() {
-			public void makeMove(CellWrapped cell) {
-				board.makeMove(cell.getCell() , CellValue.X);
+			public void makeMove(Cell cell) {
+				board.makeMove(cell, CellValue.X);
 			}
 		};
 
 		MoveListener oMoveListener = new MoveListener() {
-			public void makeMove(CellWrapped cell) {
-				board.makeMove(cell.getCell(), CellValue.O);
+			public void makeMove(Cell cell) {
+				board.makeMove(cell, CellValue.O);
 			}
 		};
 
 		do {
-			gameStatus = referee.getGameStatus(readOnlyBoard);
-			presenter.show(readOnlyBoard, gameStatus);
+			gameStatus = referee.getGameStatus(board);
+			presenter.show(board, gameStatus);
 			if (gameStatus != GameStatus.INPROGRESS) {
 				break;
 			}
 
 			switch (currentColor) {
 			case X:
-				xPlayer.makeMove(readOnlyBoard, currentColor, xMoveListener);
+				xPlayer.makeMove(board, currentColor, xMoveListener);
 				break;
 			case O:
-				oPlayer.makeMove(readOnlyBoard, currentColor, oMoveListener);
+				oPlayer.makeMove(board, currentColor, oMoveListener);
 				break;
 			}
 

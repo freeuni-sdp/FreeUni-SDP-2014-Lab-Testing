@@ -1,7 +1,7 @@
 package logic;
-
 import model.Cell;
 import model.CellValue;
+import model.ReadOnlyBoard;
 
 
 
@@ -10,7 +10,7 @@ public class PrimeReferee implements Referee {
 	private final int[][] scoreBoard = new int[][] { { 2, 3, 5 },
 			{ 7, 11, 13 }, { 17, 19, 23 } };
 
-	public GameStatus getGameStatus(ReadOnlyBoardInterface board) {
+	public GameStatus getGameStatus(ReadOnlyBoard board) {
 		
 		if (isWinner(board, CellValue.X)) {
 			return GameStatus.XISWINNER;
@@ -27,17 +27,17 @@ public class PrimeReferee implements Referee {
 		return GameStatus.INPROGRESS;
 	}
 	
-	private boolean isWinner(ReadOnlyBoardInterface board, CellValue value) {
+	private boolean isWinner(ReadOnlyBoard board, CellValue value) {
 		int score = getScore(board, value);
 		return isWinningScore(score);
 	}
 	
-	private int getScore(ReadOnlyBoardInterface board, CellValue value) {
+	private int getScore(ReadOnlyBoard board, CellValue value) {
 		int product=1;
 		for(int i=0; i<board.getSize(); i++) {
 			for(int j=0; j<board.getSize(); j++) {
 				Cell cell = new Cell(i,j);
-				CellValue currentValue = board.getValueAt(new CellWrapped(cell)).toCellValue();
+				CellValue currentValue = board.getValueAt(cell);
 				if (value==currentValue) {
 					product*=scoreBoard[cell.x][cell.y];
 				}

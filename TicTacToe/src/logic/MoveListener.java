@@ -1,7 +1,10 @@
 package logic;
+import model.Cell;
+
+
 
 public interface MoveListener {
 
-	void makeMove(CellWrapped cell);
+	void makeMove(Cell cell);
 
 }

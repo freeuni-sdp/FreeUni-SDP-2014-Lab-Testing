@@ -1,7 +1,6 @@
 package model;
 
-
-public class Board {
+public class Board implements ReadOnlyBoard {
 
 	private final int size = 3;
 	private final CellValue[][] matrix;
