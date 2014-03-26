@@ -4,11 +4,11 @@ package ui;
 
 import java.io.PrintStream;
 
+import logic.CellValueWrapped;
+import logic.CellWrapped;
 import logic.GameStatus;
 import logic.Presenter;
-import model.Cell;
-import model.CellValue;
-import model.ReadOnlyBoard;
+import logic.ReadOnlyBoardInterface;
 
 public class ConsolePresenter implements Presenter {
 
@@ -18,7 +18,7 @@ public class ConsolePresenter implements Presenter {
 		this.out = out;
 	}
 
-	public void show(ReadOnlyBoard board, GameStatus gameStatus) {
+	public void show(ReadOnlyBoardInterface board, GameStatus gameStatus) {
 		presentBoard(board);
 		presentGameStatus(gameStatus);
 	}
@@ -41,7 +41,7 @@ public class ConsolePresenter implements Presenter {
 		}
 	}
 
-	private void presentBoard(ReadOnlyBoard board) {
+	private void presentBoard(ReadOnlyBoardInterface board) {
 		out.println();
 		out.println(" |0|1|2");
 		out.println("-+-+-+-");
@@ -56,12 +56,12 @@ public class ConsolePresenter implements Presenter {
 		out.println();
 	}
 
-	private void printRow(ReadOnlyBoard board, int i) {
+	private void printRow(ReadOnlyBoardInterface board, int i) {
 		out.print(i);
 		out.print("|");
 
 		for (int j = 0; j < board.getSize(); j++) {
-			Cell cell = new Cell(j, i);
+			CellWrapped cell = new CellWrapped(j, i);
 			
 			printCell(board, cell);
 
@@ -72,8 +72,8 @@ public class ConsolePresenter implements Presenter {
 		out.println();
 	}
 
-	private void printCell(ReadOnlyBoard board, Cell cell) {
-		CellValue currentValue = board.getValueAt(cell);
+	private void printCell(ReadOnlyBoardInterface board, CellWrapped cell) {
+		CellValueWrapped currentValue = board.getValueAt(cell);
 		switch (currentValue) {
 		case X:
 			out.print("x");

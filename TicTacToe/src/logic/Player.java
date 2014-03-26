@@ -1,9 +1,8 @@
 package logic;
-import model.ReadOnlyBoard;
 
 
 
 public interface Player {
 
-	void makeMove(ReadOnlyBoard board, PlayerColor color, MoveListener moveListener);
+	void makeMove(ReadOnlyBoardInterface board, PlayerColor color, MoveListener moveListener);
 }
