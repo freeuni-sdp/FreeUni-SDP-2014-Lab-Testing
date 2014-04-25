@@ -9,7 +9,9 @@ public class DefaultSQLArgsParser implements SQLArgsParser {
 	}
 
 	public String parseValues(String[] values) {
-		return null;
+		StringBuilder builder = new StringBuilder();
+		builder.append("(").append(parseColumns(values)).append(")");
+		return builder.toString();
 	}
 
 }
