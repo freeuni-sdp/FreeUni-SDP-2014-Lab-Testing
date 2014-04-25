@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
 import logic.SQLStringGenerator;
 
 import org.junit.Before;
@@ -16,7 +16,10 @@ public class TestSQLStringGenerator {
 
 	@Test
 	public void selectQueryShouldSetColumnsAndTableName() {
-		fail("Not yet implemented");
+		String tableName = "test_table";
+		String[] columns = { "col1", "col2" };
+		String query = sql.select(columns, tableName);
+		assertEquals("select " + columns[0] + ", " + columns[1] + " from " + tableName, query);
 	}
 
 }
