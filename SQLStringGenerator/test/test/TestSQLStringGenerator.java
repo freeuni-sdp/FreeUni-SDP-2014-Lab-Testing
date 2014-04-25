@@ -48,12 +48,12 @@ public class TestSQLStringGenerator {
 
 	@Test
 	public void whereStatementShouldBeAddedToSelectQuery() {
-		String[] column = { "column" };
+		String[] columns = { "column" };
 		String where = "column < 100";
 		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
 
-		String query = sql.select(column, tableName).where(where).getSQL();
-		String expected = "select " + column[0] + " from " + tableName + " where " + where;
+		String query = sql.select(columns, tableName).where(where).getSQL();
+		String expected = "select " + columns[0] + " from " + tableName + " where " + where;
 
 		assertEquals(expected, query);
 	}
@@ -77,15 +77,28 @@ public class TestSQLStringGenerator {
 		assertEquals(expected, query);
 	}
 
-	// Stub implementation of SQLArgsParser where only one column and value parameter is passed
-	// so that code remains simple and is working correctly
+	@Test
+	public void whereStatementShouldBeAddedToInsertQuery() {
+		String[] values = { "test_value" };
+		String where = "test > 9";
+		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
+
+		String query = sql.insert(tableName, values).where(where).getSQL();
+		String expected = "insert into " + tableName + " values (" + values[0] + ") where " + where;
+
+		assertEquals(expected, query);
+	}
+
+	// Stub implementation of SQLArgsParser for the case when only
+	// one column or value parameter is passed.
+	// In this case code remains simple and is working correctly
 	class OneArgParser implements SQLArgsParser {
 		public String parseColumns(String[] columns) {
 			return columns[0];
 		}
 
 		public String parseValues(String[] values) {
-			return values[0];
+			return "(" + values[0] + ")";
 		}
 	}
 }
