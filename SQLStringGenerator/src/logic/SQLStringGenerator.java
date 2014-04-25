@@ -60,4 +60,8 @@ public class SQLStringGenerator {
 		return this;
 	}
 
+	public SQLStringGenerator delete(String tableName) {
+		return this;
+	}
+
 }

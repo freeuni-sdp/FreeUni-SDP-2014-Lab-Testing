@@ -101,6 +101,29 @@ public class TestSQLStringGenerator {
 		assertEquals(expected, query);
 	}
 
+	@Test
+	public void whereStatementShouldBeAddedToUpdateQuery() {
+		String updatedRow = "test = -10";
+		String where = "car_amount = 10";
+
+		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
+
+		String query = sql.update(tableName, updatedRow).where(where).getSQL();
+		String expected = "update " + tableName + " set " + updatedRow + " where " + where;
+
+		assertEquals(expected, query);
+	}
+
+	@Test
+	public void deleteQueryShouldSetTableName() {
+		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
+
+		String query = sql.delete(tableName).getSQL();
+		String expected = "delete from " + tableName;
+
+		assertEquals(expected, query);
+	}
+
 	// Stub implementation of SQLArgsParser for the case when only
 	// one column or value parameter is passed.
 	// In this case code remains simple and is working correctly
