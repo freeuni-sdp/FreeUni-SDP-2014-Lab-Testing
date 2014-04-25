@@ -40,18 +40,22 @@ public class TestSQLStringGenerator {
 
 		String statement = "A.x > B.x";
 		String query = sql.where(statement).getSQL();
-		String expected = " " + statement;
+		String expected = " where " + statement;
 
 		assertEquals(expected, query);
 	}
 
-	// @Test
-	// public void whereStatementShouldBeAddedToSelectQuery() {
-	// 	String[] column = { "column" };
-	// 	SQLStringGenerator sql = new SQLStringGenerator(oneColParser);
+	@Test
+	public void whereStatementShouldBeAddedToSelectQuery() {
+		String[] column = { "column" };
+		String where = "column < 100";
+		SQLStringGenerator sql = new SQLStringGenerator(oneColParser);
 
-	// 	String query = sql.select(column, tableName)
-	// }
+		String query = sql.select(column, tableName).where(where).getSQL();
+		String expected = "select " + column[0] + " from " + tableName + " where " + where;
+
+		assertEquals(expected, query);
+	}
 
 	// Stub implementation of SQLArgsParser where only one column parameter is passed
 	// so that code remains simple and is working correctly

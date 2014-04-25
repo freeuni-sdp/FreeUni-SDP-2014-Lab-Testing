@@ -24,7 +24,7 @@ public class SQLStringGenerator {
 	}
 
 	public SQLStringGenerator where(String query) {
-		sqlBuilder.append(" ").append(query);
+		sqlBuilder.append(" where ").append(query);
 		return this;
 	}
 
