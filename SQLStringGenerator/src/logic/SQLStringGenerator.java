@@ -8,6 +8,7 @@ public class SQLStringGenerator {
 	private static final String SQL_VALUES = "values";
 	private static final String SQL_UPDATE = "update";
 	private static final String SQL_SET = "set";
+	private static final String SQL_DELETE = "delete";
 
 	private SQLArgsParser parser;
 	private StringBuilder sqlBuilder;
@@ -61,6 +62,12 @@ public class SQLStringGenerator {
 	}
 
 	public SQLStringGenerator delete(String tableName) {
+		sqlBuilder = new StringBuilder();
+
+		sqlBuilder.append(SQL_DELETE).append(" ")
+			.append(SQL_FROM).append(" ")
+			.append(tableName);
+
 		return this;
 	}
 

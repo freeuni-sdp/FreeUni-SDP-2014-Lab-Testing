@@ -19,7 +19,6 @@ public class TestSQLStringGenerator {
 	@Test
 	public void selectQueryShouldSetColumnsAndTableName() {
 		String[] columns = { "col1", "col2" };
-
 		final String parsedCols = columns[0] + ", " + columns[1];
 
 		// SQLArgsParser stub that will be injected to CUT
@@ -27,6 +26,7 @@ public class TestSQLStringGenerator {
 			public String parseColumns(String[] columns) { return parsedCols; }
 			public String parseValues(String[] values) { return null; }
 		};
+
 		SQLStringGenerator sql = new SQLStringGenerator(parser);
 
 		String query = sql.select(columns, tableName).getSQL();
@@ -50,6 +50,7 @@ public class TestSQLStringGenerator {
 	public void whereStatementShouldBeAddedToSelectQuery() {
 		String[] columns = { "column" };
 		String where = "column < 100";
+
 		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
 
 		String query = sql.select(columns, tableName).where(where).getSQL();
@@ -61,7 +62,6 @@ public class TestSQLStringGenerator {
 	@Test
 	public void insertQueryShouldSetTableNameAndValues() {
 		String[] values = { "1", "2", "3", "4" };
-
 		final String parsedValues = "(" + values[0] + ", " + values[1] + ", " + values[1] + ", " + values[1] + ")";
 
 		// SQLArgsParser stub that will be injected to CUT
@@ -69,6 +69,7 @@ public class TestSQLStringGenerator {
 			public String parseValues(String[] values) { return parsedValues; }
 			public String parseColumns(String[] columns) { return null; }
 		};
+
 		SQLStringGenerator sql = new SQLStringGenerator(parser);
 
 		String query = sql.insert(tableName, values).getSQL();
@@ -81,6 +82,7 @@ public class TestSQLStringGenerator {
 	public void whereStatementShouldBeAddedToInsertQuery() {
 		String[] values = { "test_value" };
 		String where = "test > 9";
+
 		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
 
 		String query = sql.insert(tableName, values).where(where).getSQL();
