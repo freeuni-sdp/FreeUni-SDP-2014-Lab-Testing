@@ -12,12 +12,17 @@ public class IntegerStack{
 		count = 0;
 	}
 	
-	public void push(Integer val){
-		
+	public void push(Integer item){
+		list.add(item);
+		count++;
 	}
 	
 	public Integer pop(){
-		return null;
+		if (count == 0)
+			return null;
+		Integer tmp = list.remove(count-1);
+		count--;
+		return tmp;
 	}
 	
 	public int count(){

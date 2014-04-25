@@ -21,7 +21,6 @@ public class IntegerStackTest {
 		assertNull("pop should return null, because stack is empty", stack.pop());
 	}
 	
-	
 	@Test
 	public void testIntegerStackPush() {
 		Integer item = new Integer(0);
