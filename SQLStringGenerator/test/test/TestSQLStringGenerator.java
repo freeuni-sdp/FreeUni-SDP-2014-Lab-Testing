@@ -9,11 +9,14 @@ import org.junit.Test;
 
 public class TestSQLStringGenerator {
 	private String tableName = "test_table";
-	private OneArgParser oneArgParser;
+	
+	private SQLStringGenerator nullParserSQLGenerator; // SQL generator that has no parser
+	private SQLStringGenerator oneArgParserSQLGenerator; // SQL generator that has stub oneArgParser injected
 
 	@Before
 	public void initialize() {
-		oneArgParser = new OneArgParser();
+		nullParserSQLGenerator = new SQLStringGenerator(null);
+		oneArgParserSQLGenerator = new SQLStringGenerator(new OneArgParser());
 	}
 
 	@Test
@@ -37,10 +40,8 @@ public class TestSQLStringGenerator {
 
 	@Test
 	public void whereStatementShouldBeAdded() {
-		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
-
 		String statement = "A.x > B.x";
-		String query = sql.where(statement).getSQL();
+		String query = nullParserSQLGenerator.where(statement).getSQL();
 		String expected = " where " + statement;
 
 		assertEquals(expected, query);
@@ -51,9 +52,7 @@ public class TestSQLStringGenerator {
 		String[] columns = { "column" };
 		String where = "column < 100";
 
-		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
-
-		String query = sql.select(columns, tableName).where(where).getSQL();
+		String query = oneArgParserSQLGenerator.select(columns, tableName).where(where).getSQL();
 		String expected = "select " + columns[0] + " from " + tableName + " where " + where;
 
 		assertEquals(expected, query);
@@ -83,9 +82,7 @@ public class TestSQLStringGenerator {
 		String[] values = { "test_value" };
 		String where = "test > 9";
 
-		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
-
-		String query = sql.insert(tableName, values).where(where).getSQL();
+		String query = oneArgParserSQLGenerator.insert(tableName, values).where(where).getSQL();
 		String expected = "insert into " + tableName + " values (" + values[0] + ") where " + where;
 
 		assertEquals(expected, query);
@@ -95,9 +92,7 @@ public class TestSQLStringGenerator {
 	public void updateQueryShouldSetTableNameAndUpdatedRow() {
 		String updatedRow = "test = -10";
 
-		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
-
-		String query = sql.update(tableName, updatedRow).getSQL();
+		String query = nullParserSQLGenerator.update(tableName, updatedRow).getSQL();
 		String expected = "update " + tableName + " set " + updatedRow;
 
 		assertEquals(expected, query);
@@ -108,9 +103,7 @@ public class TestSQLStringGenerator {
 		String updatedRow = "test = -10";
 		String where = "car_amount = 10";
 
-		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
-
-		String query = sql.update(tableName, updatedRow).where(where).getSQL();
+		String query = nullParserSQLGenerator.update(tableName, updatedRow).where(where).getSQL();
 		String expected = "update " + tableName + " set " + updatedRow + " where " + where;
 
 		assertEquals(expected, query);
@@ -118,10 +111,18 @@ public class TestSQLStringGenerator {
 
 	@Test
 	public void deleteQueryShouldSetTableName() {
-		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
-
-		String query = sql.delete(tableName).getSQL();
+		String query = nullParserSQLGenerator.delete(tableName).getSQL();
 		String expected = "delete from " + tableName;
+
+		assertEquals(expected, query);
+	}
+
+	@Test
+	public void whereStatementShouldBeAddedToDeleteQuery() {
+		String where = "test <= 90";
+
+		String query = nullParserSQLGenerator.delete(tableName).where(where).getSQL();
+		String expected = "delete from " + tableName + " where " + where;
 
 		assertEquals(expected, query);
 	}
