@@ -23,6 +23,10 @@ public class SQLStringGenerator {
 		return this;
 	}
 
+	public SQLStringGenerator insert(String tableName, String[] values) {
+		return this;
+	}
+
 	public SQLStringGenerator where(String query) {
 		sqlBuilder.append(" where ").append(query);
 		return this;
