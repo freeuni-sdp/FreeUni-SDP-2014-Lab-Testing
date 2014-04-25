@@ -20,9 +20,7 @@ public class IntegerStack{
 	public Integer pop(){
 		if (count == 0)
 			return null;
-		Integer tmp = list.remove(count-1);
-		count--;
-		return tmp;
+		return list.remove(--count);
 	}
 	
 	public int count(){
