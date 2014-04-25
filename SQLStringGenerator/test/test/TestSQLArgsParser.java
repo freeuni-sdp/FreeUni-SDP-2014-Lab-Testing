@@ -23,5 +23,14 @@ public class TestSQLArgsParser {
 
 		assertEquals(expected, parser.parseColumns(columns));
 	}
+	
+	@Test
+	public void shouldReturnEmptyStringWhenEmptyColumnNamesArrayIsPassed() {
+		String[] columns = {};
+
+		String expected = "";
+
+		assertEquals(expected, parser.parseColumns(columns));
+	}
 
 }
