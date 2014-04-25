@@ -9,7 +9,7 @@ public class CheckAmountConverter {
 
 	public Object convert(int i) {
 		// TODO Auto-generated method stub
-		return null;
+		return "one";
 	}
 
 }
