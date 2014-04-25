@@ -23,7 +23,7 @@ public class TestSQLArgsParser {
 
 		assertEquals(expected, parser.parseColumns(columns));
 	}
-	
+
 	@Test
 	public void shouldReturnEmptyStringWhenEmptyColumnNamesArrayIsPassed() {
 		String[] columns = {};
@@ -33,4 +33,12 @@ public class TestSQLArgsParser {
 		assertEquals(expected, parser.parseColumns(columns));
 	}
 
+	@Test
+	public void shouldReturnStringOfValuesSeparatedByCommasWithinBrackets() {
+		String[] values = { "v1", "v2", "v3" };
+
+		String expected = "(" + values[0] + ", " + values[1] + ", " + values[2] + ")";
+
+		assertEquals(expected, parser.parseValues(values));
+	}
 }
