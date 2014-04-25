@@ -47,4 +47,8 @@ public class SQLStringGenerator {
 		return sqlBuilder.toString();
 	}
 
+	public SQLStringGenerator update(String tableName, String updatedRow) {
+		return this;
+	}
+
 }

@@ -89,6 +89,18 @@ public class TestSQLStringGenerator {
 		assertEquals(expected, query);
 	}
 
+	@Test
+	public void updateQueryShouldSetTableNameAndUpdatedRow() {
+		String updatedRow = "test = -10";
+
+		SQLStringGenerator sql = new SQLStringGenerator(oneArgParser);
+
+		String query = sql.update(tableName, updatedRow).getSQL();
+		String expected = "update " + tableName + " set " + updatedRow;
+
+		assertEquals(expected, query);
+	}
+
 	// Stub implementation of SQLArgsParser for the case when only
 	// one column or value parameter is passed.
 	// In this case code remains simple and is working correctly
