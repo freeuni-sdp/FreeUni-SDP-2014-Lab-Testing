@@ -6,6 +6,8 @@ public class SQLStringGenerator {
 	private static final String SQL_INSERT = "insert";
 	private static final String SQL_INTO = "into";
 	private static final String SQL_VALUES = "values";
+	private static final String SQL_UPDATE = "update";
+	private static final String SQL_SET = "set";
 
 	private SQLArgsParser parser;
 	private StringBuilder sqlBuilder;
@@ -48,6 +50,13 @@ public class SQLStringGenerator {
 	}
 
 	public SQLStringGenerator update(String tableName, String updatedRow) {
+		sqlBuilder = new StringBuilder();
+
+		sqlBuilder.append(SQL_UPDATE).append(" ")
+			.append(tableName).append(" ")
+			.append(SQL_SET).append(" ")
+			.append(updatedRow);
+
 		return this;
 	}
 
