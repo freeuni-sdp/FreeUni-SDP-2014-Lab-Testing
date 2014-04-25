@@ -24,9 +24,7 @@ public class TestSQLStringGenerator {
 
 		// SQLArgsParser stub that will be injected to CUT
 		SQLArgsParser parser = new SQLArgsParser() {
-			public String parseColumns(String[] columns) {
-				return parsedCols;
-			}
+			public String parseColumns(String[] columns) { return parsedCols; }
 			public String parseValues(String[] values) { return null; }
 		};
 		SQLStringGenerator sql = new SQLStringGenerator(parser);
@@ -68,9 +66,7 @@ public class TestSQLStringGenerator {
 
 		// SQLArgsParser stub that will be injected to CUT
 		SQLArgsParser parser = new SQLArgsParser() {
-			public String parseValues(String[] values) {
-				return parsedValues;
-			}
+			public String parseValues(String[] values) { return parsedValues; }
 			public String parseColumns(String[] columns) { return null; }
 		};
 		SQLStringGenerator sql = new SQLStringGenerator(parser);
