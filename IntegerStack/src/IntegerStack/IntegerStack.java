@@ -20,7 +20,7 @@ public class IntegerStack{
 		return null;
 	}
 	
-	public Integer count(){
+	public int count(){
 		return count;
 	}
 }
