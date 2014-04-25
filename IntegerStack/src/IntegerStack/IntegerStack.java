@@ -5,24 +5,22 @@ import java.util.List;
 
 public class IntegerStack{
 	private List<Integer> list;
+	private int count;
 	
 	public IntegerStack(){
 		list = new LinkedList<Integer>();
+		count = 0;
 	}
 	
 	public void push(Integer val){
-		list.add(val);
+		
 	}
 	
 	public Integer pop(){
-		if (list.isEmpty()){
-			return null;
-		} else {
-			return list.remove(list.size()-1);
-		}
+		return null;
 	}
 	
 	public Integer count(){
-		return list.size();
+		return count;
 	}
 }
