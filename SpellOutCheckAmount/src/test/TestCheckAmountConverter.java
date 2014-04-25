@@ -20,7 +20,17 @@ public class TestCheckAmountConverter
 	@Test
 	public void testClassApi()
 	{
-		assertEquals("one", converter.convert(1));
+		assertEquals("one must be equel to 1", "one", converter.convert(1));
+	}
+	
+	@Test
+	public void testSimpleDecimalNumbers()
+	{
+		assertEquals("twenty one must be equal to 21", "twenty one", converter.convert(21));
+		
+		assertEquals("seventy one must be equal to 71", "seventy one", converter.convert(71));
+		
+		assertEquals("ninty three must be 93", "ninty three", converter.convert(93));
 	}
 	
 
