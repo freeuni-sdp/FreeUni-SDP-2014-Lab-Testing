@@ -5,32 +5,31 @@ public class SQLStringGenerator {
 	private static final String SQL_FROM = "from";
 
 	private SQLArgsParser parser;
-	private String sql;
+	private StringBuilder sqlBuilder;
 
 	public SQLStringGenerator(SQLArgsParser parser) {
 		this.parser = parser;
-		sql = "";
+		sqlBuilder = new StringBuilder();
 	}
 
 	public SQLStringGenerator select(String[] columns, String tableName) {
-		StringBuilder builder = new StringBuilder();
+		sqlBuilder = new StringBuilder();
 
-		builder.append(SQL_SELECT).append(" ")
+		sqlBuilder.append(SQL_SELECT).append(" ")
 			.append(parser.parseColumns(columns)).append(" ")
 			.append(SQL_FROM).append(" ")
 			.append(tableName);
-
-		sql = builder.toString();
 
 		return this;
 	}
 
 	public SQLStringGenerator where(String query) {
+		sqlBuilder.append(" ").append(query);
 		return this;
 	}
 
 	public String getSQL() {
-		return sql;
+		return sqlBuilder.toString();
 	}
 
 }

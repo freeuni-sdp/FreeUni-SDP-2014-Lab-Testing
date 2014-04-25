@@ -40,8 +40,9 @@ public class TestSQLStringGenerator {
 
 		String statement = "A.x > B.x";
 		String query = sql.where(statement).getSQL();
+		String expected = " " + statement;
 
-		assertEquals(statement, query);
+		assertEquals(expected, query);
 	}
 
 	// @Test
