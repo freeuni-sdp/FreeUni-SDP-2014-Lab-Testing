@@ -67,5 +67,15 @@ public class TestCheckAmountConverter
 		assertEquals("six hundred twenty six", converter.convert(626));
 		assertEquals("nine hundred ninty nine", converter.convert(999));
 	}
+	
+	@Test
+	public void testSimpleDecimalNumbersInThousands()
+	{
+		assertEquals("one thousand", converter.convert(1000));
+		assertEquals("nine thousand", converter.convert(9000));
+		assertEquals("twenty thousand", converter.convert(20000));
+		assertEquals("one hundred thousand", converter.convert(100000));
+
+	}
 
 }

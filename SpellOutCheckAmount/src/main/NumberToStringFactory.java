@@ -14,14 +14,22 @@ public class NumberToStringFactory {
 			result += getDigit(amount);
 			String hundreds = getHundredsKeyWord(position);
 			
-			if (hundreds != null)
+			if (!hundreds.equals(""))
 			{
-				result += hundreds;
+				if (amount == 0) {
+					result += hundreds;
+				}else{
+					result += " " + hundreds;
+				}
+				
 			}
 			return result;
 		}
 		if (position%3 == 2)
 		{
+			if (amount == 0) {
+				return result;
+			}
 			result += getDigit(amount) + " hundred";
 		}
 		
@@ -57,7 +65,7 @@ public class NumberToStringFactory {
 		if (amount == 9) {
 			return "nine";
 		}
-		return null;
+		return "";
 	}
 
 	public String getDecade(int amount) {
@@ -89,19 +97,19 @@ public class NumberToStringFactory {
 		if (amount == 9) {
 			return "ninty";
 		}
-		return null;
+		return "";
 	}
 
 	public String getHundredsKeyWord(int position) {
 		if (position == 3) {
-			return " thousand";
+			return "thousand";
 		}
 		if (position == 6) {
-			return " million";
+			return "million";
 		}
 		if (position == 9) {
-			return " billion";
+			return "billion";
 		}
-		return null;
+		return "";
 	}
 }
