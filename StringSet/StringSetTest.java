@@ -63,9 +63,20 @@ public class StringSetTest {
 	}
 	
 	@Test
-	public void unionTest() {
+	public void unionTest1() {
 		Set<String> s = new HashSet<String>();
 		s.add("a");
+		set.add("newString");
+		set.union(s);
+		assertEquals("count should return 2", 2, set.count());
+		
+		
+	}
+	
+	public void unionTest2() {
+		Set<String> s = new HashSet<String>();
+		s.add("a");
+		s.add("newString");
 		set.add("newString");
 		set.union(s);
 		assertEquals("count should return 2", 2, set.count());

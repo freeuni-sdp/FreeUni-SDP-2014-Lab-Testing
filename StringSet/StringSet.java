@@ -32,7 +32,9 @@ public class StringSet {
 	public void union(Set<String> s) {
 		Iterator iter = s.iterator();
 		while (iter.hasNext()) {
-		  set.add((String) iter.next());
+			String elem = (String) iter.next();
+			if (!set.contains(elem))
+				set.add(elem);
 		}
 	}
 
