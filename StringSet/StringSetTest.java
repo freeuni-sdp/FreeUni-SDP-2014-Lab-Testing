@@ -18,6 +18,8 @@ public class StringSetTest {
 		assertEquals("count should return 0, because there is no elemenet", 0, set.count());
 		set.add("newString");
 		assertEquals("count should return 1", 1, set.count());
+		set.add("newString");
+		assertEquals("count should return 1", 1, set.count());
 		
 	}
 
