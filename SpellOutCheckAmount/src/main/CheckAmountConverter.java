@@ -3,28 +3,17 @@ package src.main;
 
 public class CheckAmountConverter
 {
+	
+	private NumberToStringFactory factory;
 
 	public CheckAmountConverter()
 	{
-		// TODO Auto-generated constructor stub
+		factory = new NumberToStringFactory();
 	}
 
 	public Object convert(int i)
 	{
-		if (i == 21)
-		{
-			return "twenty one";
-		}
-		if (i == 71)
-		{
-			return "seventy one";
-		}
-		if (i == 93)
-		{
-			return "ninty three";
-		}
-		
-		return "one";
+		return factory.getValueOf(i);
 	}
 
 }
