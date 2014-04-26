@@ -20,6 +20,12 @@ public class StringSetTest {
 		assertEquals("count should return 1", 1, set.count());
 		set.add("newString");
 		assertEquals("count should return 1", 1, set.count());
+	}
+	
+	@Test
+	public void removeTest() {
+		set.add("newString");
+		assertTrue(set.remove("newString"));
 		
 	}
 

@@ -21,7 +21,8 @@ public class StringSet {
 	}
 
 	public boolean remove(String elem) {
-		return false;
+		
+		return set.remove(elem);
 
 	}
 
