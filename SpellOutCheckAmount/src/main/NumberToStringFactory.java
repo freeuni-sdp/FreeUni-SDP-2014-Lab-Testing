@@ -2,26 +2,34 @@ package src.main;
 
 public class NumberToStringFactory {
 
-	public String getValueOf(int amount) {
-		switch (amount) {
-		case 1:
-			return "one";
-			
-		case 21:
-			return "twenty one";
-		case 71:
-			return "seventy one";
-			
-		case 93:
-			return "ninty three";
-	
-		default:
-			break;
+	public String getValueOf(int amount, int position) {
+		String result = "";
+		if (position%3 == 1)
+		{
+			result += getDecade(amount);
+			return result;
 		}
-		return null;
+		if (position%3 == 0)
+		{
+			result += getDigit(amount);
+			String hundreds = getHundredsKeyWord(position);
+			
+			if (hundreds != null)
+			{
+				result += hundreds;
+			}
+			return result;
+		}
+		if (position%3 == 2)
+		{
+			result += getDigit(amount) + " hundred";
+		}
+		
+		
+		return result;
 	}
 
-	private String getDigit(int amount) {
+	public String getDigit(int amount) {
 		if (amount == 1) {
 			return "one";
 		}
@@ -52,7 +60,7 @@ public class NumberToStringFactory {
 		return null;
 	}
 
-	private String getDecade(int amount) {
+	public String getDecade(int amount) {
 
 		if (amount == 1) {
 			return "ten";
@@ -84,7 +92,7 @@ public class NumberToStringFactory {
 		return null;
 	}
 
-	private String getHundredsKeyWord(int position) {
+	public String getHundredsKeyWord(int position) {
 		if (position == 3) {
 			return " thousand";
 		}
