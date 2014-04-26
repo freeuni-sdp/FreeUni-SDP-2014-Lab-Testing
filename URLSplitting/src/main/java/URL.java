@@ -11,7 +11,9 @@ public class URL {
             throw new IllegalArgumentException("input string must not be null");
         }
 
-        return new URL(null, null, null);
+        String[] parts = url.split("://");
+
+        return new URL(parts[0], null, null);
     }
 
     private URL(String protocol, String domain, String path) {

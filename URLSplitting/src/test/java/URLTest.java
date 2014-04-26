@@ -18,4 +18,10 @@ public class URLTest {
     public void testParseThrowsExceptionWhenInputIsNull() {
         URL url = URL.parse(null);
     }
+
+    @Test
+    public void testProtocol() {
+        URL url = URL.parse("http://apple.com");
+        assertEquals("http", url.getProtocol());
+    }
 }
