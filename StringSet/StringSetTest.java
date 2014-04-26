@@ -50,5 +50,13 @@ public class StringSetTest {
 		assertEquals("count should return 0, because set is cleared", 0, set.count());
 		
 	}
+	
+	@Test
+	public void containsTest() {
+		set.add("newString");
+		assertTrue(set.contains("newString"));
+		assertFalse(set.contains("aa"));
+		
+	}
 
 }

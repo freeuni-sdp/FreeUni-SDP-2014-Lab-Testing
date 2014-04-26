@@ -16,7 +16,7 @@ public class StringSet {
 	}
 
 	public boolean contains(String elem) {
-		return false;
+		return set.contains(elem);
 
 	}
 
