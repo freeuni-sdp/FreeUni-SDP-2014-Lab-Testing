@@ -11,9 +11,11 @@ public class CheckAmountConverter
 		factory = new NumberToStringFactory();
 	}
 
-	public Object convert(int i)
+	public String convert(int i)
 	{
-		return factory.getValueOf(i);
+		String result = "";
+		result = factory.getValueOf(i);
+		return result;
 	}
 
 }
