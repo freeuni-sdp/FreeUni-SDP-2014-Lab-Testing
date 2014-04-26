@@ -28,5 +28,14 @@ public class StringSetTest {
 		assertTrue(set.remove("newString"));
 		
 	}
+	
+	@Test
+	public void clearTest() {
+		set.add("newString");
+		set.add("second string");
+		set.clear();
+		assertEquals("count should return 0, because set is cleared", 0, set.count());
+		
+	}
 
 }

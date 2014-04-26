@@ -21,9 +21,7 @@ public class StringSet {
 	}
 
 	public boolean remove(String elem) {
-		
 		return set.remove(elem);
-
 	}
 
 	public int count() {
@@ -38,8 +36,8 @@ public class StringSet {
 
 	}
 
-	public boolean clear() {
-		return false;
+	public void clear() {
+		set.clear();
 
 	}
 
