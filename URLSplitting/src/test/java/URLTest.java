@@ -13,4 +13,9 @@ public class URLTest {
         URL url = URL.parse("sandro");
         assertTrue(url != null);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testParseThrowsExceptionWhenInputIsNull() {
+        URL url = URL.parse(null);
+    }
 }

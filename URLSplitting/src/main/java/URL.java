@@ -7,6 +7,10 @@ public class URL {
     private final String path;
 
     public static URL parse(String url) {
+        if (url == null) {
+            throw new IllegalArgumentException("input string must not be null");
+        }
+
         return new URL(null, null, null);
     }
 
