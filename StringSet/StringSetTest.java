@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -120,6 +121,14 @@ public class StringSetTest {
 		
 		set.add("aa");
 		assertEquals("count should return 1", 1, set.count());
+		
+	}
+	
+	@Test
+	public void enumeratorTest() {
+		set.add("elem");
+		Enumeration<String> a = set.enumerator();
+		assertEquals("answer will be elem", "elem", a.nextElement());
 		
 	}
 

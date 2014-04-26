@@ -1,5 +1,6 @@
 import java.awt.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Set;
@@ -55,7 +56,7 @@ public class StringSet {
 	}
 
 	public Enumeration<String> enumerator() {
-		return null;
+		return Collections.enumeration(set);
 
 	}
 
