@@ -1,0 +1,24 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+
+public class StringSetTest {
+
+	private StringSet set;
+	
+	@Before
+	public void createSet() {
+		set = new StringSet();
+	}
+	
+	@Test
+	public void addTest() {
+		assertEquals("count should return 0, because there is no elemenet", 0, set.count());
+		set.add("newString");
+		assertEquals("count should return 1", 1, set.count());
+		
+	}
+
+}
