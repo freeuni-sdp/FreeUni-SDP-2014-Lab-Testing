@@ -39,7 +39,13 @@ public class StringSet {
 	}
 
 	public void intersection(Set<String> s) {
-
+		ArrayList<String> helper = new ArrayList<String>();
+		Iterator iter = s.iterator();
+		while (iter.hasNext()) {
+			String elem = (String) iter.next();
+			helper.add(elem);
+		}
+		set = helper;
 	}
 
 	public void clear() {
