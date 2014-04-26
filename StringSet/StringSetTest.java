@@ -82,5 +82,13 @@ public class StringSetTest {
 		assertEquals("count should return 2", 2, set.count());
 		
 	}
+	public void unionTest3() {
+		Set<String> s = new HashSet<String>();
+		set.union(s);
+		assertEquals("count should return 0", 0, set.count());
+		
+		set.add("aa");
+		assertEquals("count should return 1", 1, set.count());
+	}
 
 }
