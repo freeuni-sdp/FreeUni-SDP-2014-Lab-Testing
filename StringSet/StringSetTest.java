@@ -37,5 +37,18 @@ public class StringSetTest {
 		assertEquals("count should return 0, because set is cleared", 0, set.count());
 		
 	}
+	
+	@Test
+	public void countTest() {
+		set.add("newString");
+		assertEquals("count should return 1", 1, set.count());
+		set.add("second string");
+		assertEquals("count should return 2", 2, set.count());
+		assertTrue(set.remove("newString"));
+		assertEquals("count should return 1, because newString is deleted", 1, set.count());
+		set.clear();
+		assertEquals("count should return 0, because set is cleared", 0, set.count());
+		
+	}
 
 }
