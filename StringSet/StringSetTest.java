@@ -99,6 +99,16 @@ public class StringSetTest {
 		set.intersection(s);
 		assertEquals("count should return 1", 1, set.count());
 		
+	}
+	
+	@Test
+	public void intersectionTest2() {
+		Set<String> s = new HashSet<String>();
+		s.add("a");
+		s.add("b");
+		set.add("a");
+		set.intersection(s);
+		assertEquals("count should return 1", 1, set.count());
 		
 	}
 

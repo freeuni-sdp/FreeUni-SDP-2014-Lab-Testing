@@ -43,7 +43,8 @@ public class StringSet {
 		Iterator iter = s.iterator();
 		while (iter.hasNext()) {
 			String elem = (String) iter.next();
-			helper.add(elem);
+			if (set.contains(elem))
+				helper.add(elem);
 		}
 		set = helper;
 	}
