@@ -1,6 +1,7 @@
 import java.awt.List;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.Set;
 
 public class StringSet {
@@ -29,7 +30,10 @@ public class StringSet {
 	}
 
 	public void union(Set<String> s) {
-
+		Iterator iter = s.iterator();
+		while (iter.hasNext()) {
+		  set.add((String) iter.next());
+		}
 	}
 
 	public void intersection(Set<String> s) {

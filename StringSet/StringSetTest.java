@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -56,6 +59,16 @@ public class StringSetTest {
 		set.add("newString");
 		assertTrue(set.contains("newString"));
 		assertFalse(set.contains("aa"));
+		
+	}
+	
+	@Test
+	public void unionTest() {
+		Set<String> s = new HashSet<String>();
+		s.add("a");
+		set.add("newString");
+		set.union(s);
+		assertEquals("count should return 2", 2, set.count());
 		
 	}
 
