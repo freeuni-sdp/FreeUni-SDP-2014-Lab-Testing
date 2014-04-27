@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+
 public class WordWrappingTest {
 
 	
@@ -13,7 +14,6 @@ public class WordWrappingTest {
 	public void testSimpleWordWrap(){
 		ArrayList<String> correctArrayList = new ArrayList<>();
 		correctArrayList.add("Text");
-		
 		assertEquals(WordWrapping.wordWrap("Text", 10), correctArrayList);
 	}
 	
@@ -27,8 +27,6 @@ public class WordWrappingTest {
 		correctArrayList.add("t");
 		
 		assertEquals(WordWrapping.wordWrap("Text", 1), correctArrayList);
-		
-		
 	}
 	
 	@Test
@@ -60,7 +58,6 @@ public class WordWrappingTest {
 		
 	}
 	
-
 	@Test
 	public void testForEmptyStringOrZeroLength(){
 		
@@ -72,6 +69,8 @@ public class WordWrappingTest {
 		
 		assertEquals(WordWrapping.wordWrap("Text", 0), correctArrayList);
 	}
+	
+	
 	
 	
 	@Test
@@ -97,6 +96,26 @@ public class WordWrappingTest {
 		assertEquals(WordWrapping.wordWrap("a b c d e f", 3), correctArrayList);
 		
 
+	}
+	
+	@Test
+	public void testForWrapsThatDontMatchGivenSize(){
+		ArrayList<String> correctArrayList = new ArrayList<>();
+		
+		correctArrayList.add("Nika");
+		correctArrayList.add("midis");
+		correctArrayList.add("skolashi");
+		
+		assertEquals(WordWrapping.wordWrap("Nika midis skolashi", 8), correctArrayList);
+		
+		
+		correctArrayList = new ArrayList<>();
+		
+		correctArrayList.add("Davaleba");
+		correctArrayList.add("titqmis");
+		correctArrayList.add("datserili aris");
+
+		assertEquals(WordWrapping.wordWrap("Davaleba titqmis datserili aris", 14), correctArrayList);
 	}
 
 }
