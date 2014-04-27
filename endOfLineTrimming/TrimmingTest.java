@@ -28,6 +28,8 @@ public class TrimmingTest {
 		assertEquals("lastOutput method should remove the space after all enter  ", "tako\t\tj", trm.lastOutput("tako\t \t j"));
 		assertEquals("lastOutput method should remove the space after all Tab  ", "tako\n\nj", trm.lastOutput("tako\n \n j"));
 
+		assertEquals("lastOutput method should remove the space after all enter and after all tab  ", "tako\t\njaparidze", trm.lastOutput("tako\t \n japaridze"));
+
 	}
 
 }
