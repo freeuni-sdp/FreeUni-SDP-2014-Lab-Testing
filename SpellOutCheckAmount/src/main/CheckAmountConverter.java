@@ -7,21 +7,23 @@ public class CheckAmountConverter
 {
 	
 	private NumberToStringFactory factory;
+	private int request;
 
 	public CheckAmountConverter()
 	{
-		factory = new NumberToStringFactory();
+		factory = new NumberToStringFactory(this);
 	}
 
 	public String convert(int i)
 	{
+		request = i;
 		String result = "";
 		StringBuilder sb = new StringBuilder();
 		String amount1 = String.valueOf(i);
 	
 		String amount = reverse(amount1);
 		ArrayList<String> words = new ArrayList<>();
-		for (int j = amount.length()-1; j >=0; j--) 
+		for (int j = amount.length()-1; j >= 0; j--) 
 		{
 			String value = factory.getValueOf(Integer.parseInt(String.valueOf(amount.charAt(j))), j);
 			if (!value.equals("")) 
@@ -50,6 +52,19 @@ public class CheckAmountConverter
 			result += amount1.charAt(i);
 		}
 		return result;
+	}
+
+	public boolean hasNotHundreds(int position) {
+		String amount = reverse(String.valueOf(request));
+		try {
+			if (amount.charAt(position) == '0' && amount.charAt(position+1) == '0' && amount.charAt(position+2) == '0') {
+				return true;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+		
+		return false;
 	}
 	
 }

@@ -17,16 +17,16 @@ public class TestCheckAmountConverter
 	public void init()
 	{
 		converter = new CheckAmountConverter();
-		factory = new NumberToStringFactory();
+		factory = new NumberToStringFactory(converter);
 	}
 	
-	@Test
+//	@Test
 	public void testClassApi()
 	{
 		assertEquals("one must be equel to 1", "one", converter.convert(1));
 	}
 	
-	@Test
+//	@Test
 	public void testSimpleDecimalNumbers()
 	{
 		assertEquals("twenty one must be equal to 21", "twenty one", converter.convert(21));
@@ -77,5 +77,23 @@ public class TestCheckAmountConverter
 		assertEquals("one hundred thousand", converter.convert(100000));
 
 	}
-
+	
+	@Test
+	public void testComplexDecimalNumbersInThousands()
+	{
+		assertEquals("one thousand one", converter.convert(1001));
+		assertEquals("nine thousand seventy two", converter.convert(9072));
+		assertEquals("twenty thousand one hundred", converter.convert(20100));
+		assertEquals("one hundred one thousand twenty", converter.convert(101020));
+	}
+	
+	@Test
+	public void testDecimalNumbersInMillionsAndBillions()
+	{
+		assertEquals("one million one", converter.convert(1000001));
+		assertEquals("ninty million seventy two", converter.convert(90000072));
+		assertEquals("one billion", converter.convert(1000000000));
+		assertEquals("one billion ninty million", converter.convert(1090000000));
+	}
+	
 }
