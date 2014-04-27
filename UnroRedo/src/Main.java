@@ -13,6 +13,7 @@ public class Main {
 	public boolean undo(int command) {
 		int lastCommand = commands.get(commands.size() - 1);
 		if (command != lastCommand) return false;
+		commands.remove(commands.size() - 1);
 		return true;
 	}
 	
