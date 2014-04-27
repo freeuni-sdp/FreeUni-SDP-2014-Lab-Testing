@@ -104,4 +104,14 @@ public class TestCheckAmountConverter
 		assertEquals("fifteen", converter.convert(15));
 		assertEquals("twelve", converter.convert(12));
 	}
+	
+	@Test
+	public void testComplexTeenNumbers()
+	{
+		assertEquals("one hundred eleven", converter.convert(111));
+		assertEquals("one thousand ninteen", converter.convert(1019));
+		assertEquals("two hundred fifteen", converter.convert(215));
+		assertEquals("eleven thousand one", converter.convert(11001));
+		assertEquals("four million three hundred eleven thousand six hundred twelve", converter.convert(4311612));
+	}
 }

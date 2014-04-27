@@ -36,13 +36,23 @@ public class CheckAmountConverter
 		{
 			
 			sb.append(words.get(j));
+			
 			if (isEqualToTeen(words.get(j)))
 			{
 				if (isNextDigit(words.get(j+1)))
 				{
 					j++;
 				}
+				else
+				{
+					if(nextSubStringDigit(words.get(j+1)) != null)
+					{
+						words.set(j+1, nextSubStringDigit(words.get(j+1)));
+					}
+				}
 			}
+			
+			
 			if (j != words.size()-1)
 			{
 				sb.append(" ");
@@ -53,6 +63,18 @@ public class CheckAmountConverter
 		return result;
 	}
 
+
+
+	private String nextSubStringDigit(String string) {
+		for (int i = 1; i < 10; i++)
+		{
+			if (string.indexOf(factory.getDigit(i)) == 0)
+			{
+				return string.substring(factory.getDigit(i).length()+1);
+			}
+		}
+		return null;
+	}
 
 	private boolean isNextDigit(String string) 
 	{
