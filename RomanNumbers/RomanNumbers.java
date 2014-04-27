@@ -2,6 +2,8 @@ public class RomanNumbers {
 
 	private static int oneSymbolValues[] = new int[] { 1, 4, 5, 9, 10, 40, 50,
 			90, 100, 400, 500, 900, 1000 };
+	
+	private static String RomanSymbols = "IVXLCDM";
 
 	private static String getRomanValue(int number) {
 
@@ -103,7 +105,7 @@ public class RomanNumbers {
 	public static int romanToInt(String roman) throws RomanNumbersException{
 		int returnValue = 0;
 		
-		
+		if(!isValid(roman)) throw new RomanNumbersException("contains invalid symbols");
 		for( int i =0 ; i <roman.length() ; i++){
 			int twoSymboledNumber =0;
 			
@@ -121,5 +123,14 @@ public class RomanNumbers {
 		return returnValue;
 
 	}
+
+	private static boolean isValid(String roman) {
+		for( int i =0 ; i <roman.length() ; i++){
+			
+			if(!RomanSymbols.contains(""+roman.charAt(i))) return false;
+		}
+		return true;
+	}
+
 
 }
