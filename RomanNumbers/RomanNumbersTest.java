@@ -6,13 +6,13 @@ import org.junit.Test;
 public class RomanNumbersTest {
 
 	@Test
-	public void testIntToRomanForOne() {
+	public void testIntToRomanForOne() throws RomanNumbersException {
 		
 		assertEquals("I", RomanNumbers.intToRoman(1));
 	}
 	
-	@Test
-	public void testIntToRomanForOtherNumbersWithOneSymbol() {
+	@Test 
+	public void testIntToRomanForOtherNumbersWithOneSymbol() throws RomanNumbersException {
 		
 		assertEquals("V", RomanNumbers.intToRoman(5));
 		assertEquals("X", RomanNumbers.intToRoman(10));
@@ -23,7 +23,7 @@ public class RomanNumbersTest {
 	}
 	
 	@Test
-	public void testIntToRomanForOtherNumbersWithSameSymbols() {
+	public void testIntToRomanForOtherNumbersWithSameSymbols() throws RomanNumbersException {
 		assertEquals("II", RomanNumbers.intToRoman(2));		
 		assertEquals("XX", RomanNumbers.intToRoman(20));
 		assertEquals("CC", RomanNumbers.intToRoman(200));
@@ -35,7 +35,7 @@ public class RomanNumbersTest {
 	}
 	
 	@Test
-	public void testIntToRomanForOtherNumbersWithDifferentSymbols() {
+	public void testIntToRomanForOtherNumbersWithDifferentSymbols() throws RomanNumbersException {
 		assertEquals("XI", RomanNumbers.intToRoman(11));
 		assertEquals("XVII", RomanNumbers.intToRoman(17));
 		assertEquals("LXVIII", RomanNumbers.intToRoman(68));
@@ -48,7 +48,7 @@ public class RomanNumbersTest {
 	}
 	
 	@Test
-	public void testIntToRomanForOtherNumbers() {
+	public void testIntToRomanForOtherNumbers() throws RomanNumbersException {
 		assertEquals("IV", RomanNumbers.intToRoman(4));
 		assertEquals("IX", RomanNumbers.intToRoman(9));
 		assertEquals("XCIX", RomanNumbers.intToRoman(99));
@@ -61,10 +61,12 @@ public class RomanNumbersTest {
 			
 	}
 	
-	@Test
-	public void testForNonExistingNumbers() {
-		
-			
+	@Test (expected=RomanNumbersException.class)
+	public void testForNonExistingNumbers() throws RomanNumbersException {	
+		RomanNumbers.intToRoman(-5);
+		RomanNumbers.intToRoman(0);
+		RomanNumbers.intToRoman(4000);
+		RomanNumbers.intToRoman(5872);
 	}
 	
 	

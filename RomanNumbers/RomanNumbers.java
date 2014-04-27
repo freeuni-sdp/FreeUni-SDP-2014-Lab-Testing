@@ -39,7 +39,8 @@ public class RomanNumbers {
 
 	}
 
-	public static String intToRoman(int number) {
+	public static String intToRoman(int number) throws RomanNumbersException {
+		
 		String str = "";
 
 		if (getRomanValue(number).equals("")) {
