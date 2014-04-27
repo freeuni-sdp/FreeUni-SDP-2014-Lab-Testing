@@ -17,6 +17,7 @@ public class WordWrappingTest {
 		assertEquals(WordWrapping.wordWrap("Text", 10), correctArrayList);
 	}
 	
+	
 	@Test
 	public void testForShorterLengthThanText(){
 		ArrayList<String> correctArrayList = new ArrayList<>();
@@ -26,6 +27,21 @@ public class WordWrappingTest {
 		correctArrayList.add("t");
 		
 		assertEquals(WordWrapping.wordWrap("Text", 1), correctArrayList);
+		
+		
 	}
+	
+	@Test
+	public void testForLengthTwo(){
+		ArrayList<String> correctArrayList = new ArrayList<>();
+		correctArrayList.add("Te");
+		correctArrayList.add("xt");
+		assertEquals(WordWrapping.wordWrap("Text", 2), correctArrayList);
+		
+	}
+	
+	
+	
+	
 
 }
