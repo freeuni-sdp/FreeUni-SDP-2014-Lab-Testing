@@ -43,10 +43,7 @@ public class RomanNumbers {
 					break;
 			}
 
-			if (number == 0)
-				return str;
-			else
-				return str + getRomanValue(number);
+			return str;			
 
 		} else
 			return getRomanValue(number);
