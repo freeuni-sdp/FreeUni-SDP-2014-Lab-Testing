@@ -80,6 +80,17 @@ public class RomanNumbersTest {
 		
 	}
 	
+	@Test
+	public void testRomanToIntForOtherNumbersWithSameSymbols() {
+		assertEquals(2, RomanNumbers.romanToInt("II"));
+		assertEquals(3, RomanNumbers.romanToInt("III"));
+		assertEquals(20, RomanNumbers.romanToInt("XX"));
+		assertEquals(30, RomanNumbers.romanToInt("XXX"));
+		assertEquals(200, RomanNumbers.romanToInt("CC"));
+		assertEquals(300, RomanNumbers.romanToInt("CCC"));
+		assertEquals(2000, RomanNumbers.romanToInt("MM"));
+		assertEquals(3000, RomanNumbers.romanToInt("MMM"));
+	}
 	
 	
 	

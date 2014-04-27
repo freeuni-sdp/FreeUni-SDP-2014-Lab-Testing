@@ -95,8 +95,12 @@ public class RomanNumbers {
 	}
 
 	public static int romanToInt(String roman) {
+		int returnValue = 0;
+		for( int i =0 ; i <roman.length() ; i++){
+			returnValue += getIntValue(roman.substring(i,i+1));
 
-		return getIntValue(roman);
+		}
+		return returnValue;
 
 	}
 
