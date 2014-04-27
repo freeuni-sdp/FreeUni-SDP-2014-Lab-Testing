@@ -22,7 +22,7 @@ public class URL {
 
         int pos;
         if ((pos = domain.indexOf('/')) >= 0) {
-            path = domain.substring(pos, domain.length());
+            path = domain.substring(pos+1, domain.length());
             domain = domain.substring(0, pos);
         }
 

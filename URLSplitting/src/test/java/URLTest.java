@@ -26,15 +26,17 @@ public class URLTest {
     }
 
     @Test
-    public void testDomainWhenPathIsEmpty() {
+    public void testURLWhenPathIsEmpty() {
         URL url = URL.parse("http://google.com");
         assertEquals("google.com", url.getDomain());
+        assertEquals("", url.getPath());
     }
 
     @Test
-    public void testDomainWhenPathIsNotEmpty() {
+    public void testURLWhenPathIsNotEmpty() {
         URL url = URL.parse("http://google.com/search");
         assertEquals("google.com", url.getDomain());
+        assertEquals("search", url.getPath());
     }
 
 }
