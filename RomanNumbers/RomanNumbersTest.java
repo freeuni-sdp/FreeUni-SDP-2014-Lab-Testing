@@ -23,7 +23,7 @@ public class RomanNumbersTest {
 	}
 	
 	@Test
-	public void testIntToRomanForOtherNumbersWithManySymbols() {
+	public void testIntToRomanForOtherNumbersWithSameSymbols() {
 		assertEquals("II", RomanNumbers.intToRoman(2));		
 		assertEquals("XX", RomanNumbers.intToRoman(20));
 		assertEquals("CC", RomanNumbers.intToRoman(200));
@@ -33,6 +33,12 @@ public class RomanNumbersTest {
 		assertEquals("XXX", RomanNumbers.intToRoman(30));
 		assertEquals("CCC", RomanNumbers.intToRoman(300));
 		assertEquals("MMM", RomanNumbers.intToRoman(3000));
+	}
+	
+	@Test
+	public void testIntToRomanForOtherNumbersWithDifferentSymbols() {
+		assertEquals("IV", RomanNumbers.intToRoman(4));		
+		
 	}
 	
 	

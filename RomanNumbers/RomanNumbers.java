@@ -31,8 +31,10 @@ public class RomanNumbers {
 
 		if (getRomanValue(number).equals("")) {
 
+			
 			for (int i = oneSymbolValues.length - 1; i >= 0; i--) {
 
+				
 				while (number % oneSymbolValues[i] == 0 && number != 0) {
 
 					str += getRomanValue(oneSymbolValues[i]);
