@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="TicTacToe/test"/>
 	<classpathentry kind="src" path="IntegerStack/src"/>
 	<classpathentry kind="src" path="IntegerStack/test"/>
+	<classpathentry kind="src" path="Word-wrapping"/>
 	<classpathentry exported="true" kind="lib" path="TicTacToe/lib/easymock-3.2/easymock-3.2.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
