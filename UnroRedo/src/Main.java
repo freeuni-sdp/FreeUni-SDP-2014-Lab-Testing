@@ -4,21 +4,24 @@ import java.util.ArrayList;
 
 public class Main {
 	ArrayList<Integer> commands = new ArrayList<>();
+	ArrayList<Integer> undos = new ArrayList<>();
+
+
 	
-	public Main command(int command){
+	public Main command(int command) {
 		commands.add(command);
 		return this;
 	}
 	
-	public boolean undo(int command) {
-		int lastCommand = commands.get(commands.size() - 1);
-		if (command != lastCommand) return false;
-		commands.remove(commands.size() - 1);
-		return true;
+	public int undo() {
+		return ERROR;
 	}
 	
-	public boolean redo(int command) {
-		
-		return false;
+	public int redo() {
+		return ERROR;
 	}
+	
+	public static final int ERROR = -1;
+	
+	
 }

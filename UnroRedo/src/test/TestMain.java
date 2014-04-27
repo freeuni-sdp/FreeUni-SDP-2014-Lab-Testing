@@ -17,18 +17,6 @@ public class TestMain {
 	}
 
 
-	
-	@Test
-	public void shouldReturnTrueWhenUndoingLastCommand(){
-		main.command(1).command(2).command(3).command(4);
-		assertTrue(main.undo(4));
-	}
-	
-	@Test
-	public void shouldReturnTrueWhenUndoingTwoLastCommands(){
-		main.command(1).command(2).command(3);
-		assertTrue(main.undo(3));
-		assertTrue(main.undo(2));
-	}
+
 
 }
