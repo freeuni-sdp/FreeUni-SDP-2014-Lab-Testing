@@ -15,11 +15,13 @@ public class WordWrapping {
 		}else{
 			int startPos = 0;
 			while(startPos < text.length()){
-			
-				String currString = text.substring(startPos, length + startPos);
+				String currString = "";
+				if(length + startPos > text.length()){
+					currString = text.substring(startPos);
+				}else
+					currString = text.substring(startPos, length + startPos);
 				resultStrings.add(resultStrings.size(), currString);
 				startPos = startPos + length;
-				
 			}
 			
 		}
