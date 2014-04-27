@@ -26,5 +26,13 @@ public class TestMain {
 		assertEquals(main.redo(), main.ERROR);
 	}
 	
+	
+	@Test
+	public void shouldUndoLastCommands(){
+		main.command(1).command(2).command(3);
+		assertEquals(main.undo(), 3);
+		assertEquals(main.undo(), 2);
+		assertEquals(main.undo(), 1);
+	}
 
 }

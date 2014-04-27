@@ -14,7 +14,10 @@ public class Main {
 	}
 	
 	public int undo() {
-		return ERROR;
+		if (commands.size() < 1) return ERROR;
+		int command = commands.get(commands.size() - 1);
+		commands.remove(commands.size() - 1);
+		return command;
 	}
 	
 	public int redo() {
