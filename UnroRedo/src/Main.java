@@ -17,11 +17,16 @@ public class Main {
 		if (commands.size() < 1) return ERROR;
 		int command = commands.get(commands.size() - 1);
 		commands.remove(commands.size() - 1);
+		undos.add(command);
 		return command;
 	}
 	
 	public int redo() {
-		return ERROR;
+		if (undos.size() < 1) return ERROR;
+		int command = undos.get(undos.size() - 1);
+		undos.remove(undos.size() - 1);
+		this.command(command);
+		return command;
 	}
 	
 	public static final int ERROR = -1;

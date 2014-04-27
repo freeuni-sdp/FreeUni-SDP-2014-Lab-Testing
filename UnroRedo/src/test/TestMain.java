@@ -35,4 +35,14 @@ public class TestMain {
 		assertEquals(main.undo(), 1);
 	}
 
+	@Test
+	public void shouldRedoLastUndos() {
+		main.command(1).command(2).command(3);
+		main.undo();
+		main.undo();
+		main.undo();
+		assertEquals(main.redo(), 1);
+		assertEquals(main.redo(), 2);
+		assertEquals(main.redo(), 3);
+	}
 }
