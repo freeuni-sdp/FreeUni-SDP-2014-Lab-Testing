@@ -100,7 +100,7 @@ public class RomanNumbers {
 		}
 	}
 
-	public static int romanToInt(String roman) {
+	public static int romanToInt(String roman) throws RomanNumbersException{
 		int returnValue = 0;
 		
 		
