@@ -28,9 +28,11 @@ public class RomanNumbersTest {
 		assertEquals("XX", RomanNumbers.intToRoman(20));
 		assertEquals("CC", RomanNumbers.intToRoman(200));
 		assertEquals("MM", RomanNumbers.intToRoman(2000));
-		
-		
-		assertEquals("III", RomanNumbers.intToRoman(3));		
+
+		assertEquals("III", RomanNumbers.intToRoman(3));
+		assertEquals("XXX", RomanNumbers.intToRoman(30));
+		assertEquals("CCC", RomanNumbers.intToRoman(300));
+		assertEquals("MMM", RomanNumbers.intToRoman(3000));
 	}
 	
 	

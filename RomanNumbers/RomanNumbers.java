@@ -28,16 +28,19 @@ public class RomanNumbers {
 
 	public static String intToRoman(int number) {
 		String str = "";
+
 		if (getRomanValue(number).equals("")) {
 
 			for (int i = oneSymbolValues.length - 1; i >= 0; i--) {
 
-				if (number % oneSymbolValues[i] == 0) {
-					
+				while (number % oneSymbolValues[i] == 0 && number != 0) {
+
 					str += getRomanValue(oneSymbolValues[i]);
 					number -= oneSymbolValues[i];
+
 				}
-				if(!getRomanValue(number).equals("")) break;
+				if (!getRomanValue(number).equals(""))
+					break;
 			}
 
 			if (number == 0)
