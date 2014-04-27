@@ -31,4 +31,10 @@ public class URLTest {
         assertEquals("google.com", url.getDomain());
     }
 
+    @Test
+    public void testDomainWhenPathIsNotEmpty() {
+        URL url = URL.parse("http://google.com/search");
+        assertEquals("google.com", url.getDomain());
+    }
+
 }

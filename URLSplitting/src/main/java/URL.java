@@ -16,7 +16,17 @@ public class URL {
 
         String[] parts = url.split("://");
 
-        return new URL(parts[0], parts[1], null);
+        String protocol = parts[0];
+        String domain = parts[1];
+        String path = "";
+
+        int pos;
+        if ((pos = domain.indexOf('/')) >= 0) {
+            path = domain.substring(pos, domain.length());
+            domain = domain.substring(0, pos);
+        }
+
+        return new URL(protocol, domain, path);
     }
 
     private URL(String protocol, String domain, String path) {
