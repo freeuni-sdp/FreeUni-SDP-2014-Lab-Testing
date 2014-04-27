@@ -46,4 +46,10 @@ public class URLTest {
         assertEquals("", url.getPath());
     }
 
+    @Test
+    public void testURLWithMultipleSlashes() {
+        URL url = URL.parse("http://www.google.com/search/images");
+        assertEquals("www.google.com", url.getDomain());
+        assertEquals("search/images", url.getPath());
+    }
 }
