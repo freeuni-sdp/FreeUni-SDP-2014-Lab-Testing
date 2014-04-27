@@ -73,5 +73,30 @@ public class WordWrappingTest {
 		assertEquals(WordWrapping.wordWrap("Text", 0), correctArrayList);
 	}
 	
+	
+	@Test
+	public void testForMoreThanOneWords(){
+		ArrayList<String> correctArrayList = new ArrayList<>();
+		
+		correctArrayList.add("abc");
+		correctArrayList.add("def");
+		
+		assertEquals(WordWrapping.wordWrap("abc def", 3), correctArrayList);
+		
+		correctArrayList = new ArrayList<>();
+		
+		correctArrayList.add("abc");
+		correctArrayList.add("def");
+		correctArrayList.add("abc");
+		assertEquals(WordWrapping.wordWrap("abcdef abc", 3), correctArrayList);
+		
+		correctArrayList = new ArrayList<>();
+		correctArrayList.add("a b");
+		correctArrayList.add("c d");
+		correctArrayList.add("e f");
+		assertEquals(WordWrapping.wordWrap("a b c d e f", 3), correctArrayList);
+		
+
+	}
 
 }
