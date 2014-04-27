@@ -52,4 +52,25 @@ public class TestMain {
 		main.command(2);
 		assertEquals(main.redo(), main.ERROR);
 	}
+
+
+	@Test
+	public void advnaced(){
+		main.command(1).command(2);
+		assertEquals(main.redo(), main.ERROR);
+		assertEquals(main.undo(), 2);
+		assertEquals(main.undo(), 1);
+		assertEquals(main.redo(), 1);
+	}
+	
+	@Test
+	public void advnaced1(){
+		main.command(1).command(2);
+		main.undo();
+		main.command(3);
+		assertEquals(main.undo(), 3);
+		assertEquals(main.undo(), 1);
+		assertEquals(main.redo(), 1);
+		assertEquals(main.redo(), 3);
+	}
 }
