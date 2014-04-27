@@ -10,7 +10,7 @@ public class URLTest {
 
     @Test
     public void testParseReturnsNotNull() {
-        URL url = URL.parse("sandro");
+        URL url = URL.parse("http://facebook.com");
         assertTrue(url != null);
     }
 
@@ -24,4 +24,11 @@ public class URLTest {
         URL url = URL.parse("http://apple.com");
         assertEquals("http", url.getProtocol());
     }
+
+    @Test
+    public void testDomainWhenPathIsEmpty() {
+        URL url = URL.parse("http://google.com");
+        assertEquals("google.com", url.getDomain());
+    }
+
 }

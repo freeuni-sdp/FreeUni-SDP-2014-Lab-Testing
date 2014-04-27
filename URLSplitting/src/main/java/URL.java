@@ -6,6 +6,9 @@ public class URL {
     private final String domain;
     private final String path;
 
+    /**
+     * assume that, if url is not null it is properly formatted
+     */
     public static URL parse(String url) {
         if (url == null) {
             throw new IllegalArgumentException("input string must not be null");
@@ -13,7 +16,7 @@ public class URL {
 
         String[] parts = url.split("://");
 
-        return new URL(parts[0], null, null);
+        return new URL(parts[0], parts[1], null);
     }
 
     private URL(String protocol, String domain, String path) {
