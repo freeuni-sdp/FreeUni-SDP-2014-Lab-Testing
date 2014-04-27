@@ -1,8 +1,8 @@
-
 public class RomanNumbers {
 
-	
-	
+	private static int oneSymbolValues[] = new int[] { 1, 5, 10, 50, 100, 500,
+			1000 };
+
 	private static String getRomanValue(int number) {
 		switch (number) {
 		case 1:
@@ -25,16 +25,35 @@ public class RomanNumbers {
 		}
 
 	}
-	public static String intToRoman(int number){
-		return getRomanValue(number);
-		
+
+	public static String intToRoman(int number) {
+		String str = "";
+		if (getRomanValue(number).equals("")) {
+
+			for (int i = oneSymbolValues.length - 1; i >= 0; i--) {
+
+				if (number % oneSymbolValues[i] == 0) {
+					
+					str += getRomanValue(oneSymbolValues[i]);
+					number -= oneSymbolValues[i];
+				}
+
+			}
+
+			if (number == 0)
+				return str;
+			else
+				return str + getRomanValue(number);
+
+		} else
+			return getRomanValue(number);
+
 	}
-	
-	public static int romanToInt(String roman){
-		
+
+	public static int romanToInt(String roman) {
+
 		return 0;
-		
-	
+
 	}
-	
+
 }

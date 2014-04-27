@@ -25,6 +25,7 @@ public class RomanNumbersTest {
 	@Test
 	public void testIntToRomanForOtherNumbersWithManySymbols() {
 		assertEquals("II", RomanNumbers.intToRoman(2));
+		assertEquals("XX", RomanNumbers.intToRoman(20));
 	}
 	
 	
