@@ -15,6 +15,20 @@ public class RomanNumbersTest {
 	public void testIntToRomanForOtherNumbersWithOneSymbol() {
 		
 		assertEquals("V", RomanNumbers.intToRoman(5));
+		assertEquals("X", RomanNumbers.intToRoman(10));
+		assertEquals("L", RomanNumbers.intToRoman(50));
+		assertEquals("C", RomanNumbers.intToRoman(100));
+		assertEquals("D", RomanNumbers.intToRoman(500));
+		assertEquals("M", RomanNumbers.intToRoman(1000));
 	}
+	
+	@Test
+	public void testIntToRomanForOtherNumbersWithManySymbols() {
+		assertEquals("II", RomanNumbers.intToRoman(2));
+	}
+	
+	
+	
+	
 
 }

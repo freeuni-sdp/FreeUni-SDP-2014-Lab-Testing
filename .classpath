@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="TicTacToe/src"/>
+	<classpathentry kind="src" path="RomanNumbers"/>
 	<classpathentry kind="src" path="TicTacToe/test"/>
 	<classpathentry kind="src" path="IntegerStack/src"/>
 	<classpathentry kind="src" path="IntegerStack/test"/>
