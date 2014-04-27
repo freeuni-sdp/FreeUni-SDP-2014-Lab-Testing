@@ -44,6 +44,27 @@ public class RomanNumbersTest {
 		assertEquals("CLXXVI", RomanNumbers.intToRoman(176));
 		assertEquals("DCCXII", RomanNumbers.intToRoman(712));
 		assertEquals("MMMDCCLXVII", RomanNumbers.intToRoman(3767));		
+		
+	}
+	
+	@Test
+	public void testIntToRomanForOtherNumbers() {
+		assertEquals("IV", RomanNumbers.intToRoman(4));
+		assertEquals("IX", RomanNumbers.intToRoman(9));
+		assertEquals("XCIX", RomanNumbers.intToRoman(99));
+		assertEquals("XXIX", RomanNumbers.intToRoman(29));
+		assertEquals("XLIX", RomanNumbers.intToRoman(49));
+		assertEquals("CDIV", RomanNumbers.intToRoman(404));
+		assertEquals("CMIX", RomanNumbers.intToRoman(909));
+		assertEquals("CMXLIX", RomanNumbers.intToRoman(949));
+		assertEquals("MMMCMXCIX", RomanNumbers.intToRoman(3999));		
+			
+	}
+	
+	@Test
+	public void testForNonExistingNumbers() {
+		
+			
 	}
 	
 	

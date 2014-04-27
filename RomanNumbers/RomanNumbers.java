@@ -1,22 +1,35 @@
 public class RomanNumbers {
 
-	private static int oneSymbolValues[] = new int[] { 1, 5, 10, 50, 100, 500,
-			1000 };
+	private static int oneSymbolValues[] = new int[] { 1, 4, 5, 9 , 10, 40, 50,90, 100, 400, 500,
+			900 , 1000 };
 
 	private static String getRomanValue(int number) {
+		
 		switch (number) {
 		case 1:
 			return "I";
+		case 4:
+			return "IV";
 		case 5:
 			return "V";
+		case 9:
+			return "IX";
 		case 10:
 			return "X";
+		case 40:
+			return "XL";
 		case 50:
 			return "L";
+		case 90:
+			return "XC";
 		case 100:
 			return "C";
+		case 400:
+			return "CD";
 		case 500:
 			return "D";
+		case 900:
+			return "CM";
 		case 1000:
 			return "M";
 
@@ -38,7 +51,7 @@ public class RomanNumbers {
 				
 				
 				while (number>=oneSymbolValues[i] && number != 0) {
-					//int remain = number % oneSymbolValues[i];
+					
 					
 					str += getRomanValue(oneSymbolValues[i]);
 					number -= oneSymbolValues[i];
