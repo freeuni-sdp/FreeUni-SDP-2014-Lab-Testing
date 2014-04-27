@@ -107,7 +107,17 @@ public class RomanNumbersTest {
 	@Test
 	public void testRomanToIntForOtherNumbers() {
 		assertEquals(4, RomanNumbers.romanToInt("IV"));
-	
+		assertEquals(9, RomanNumbers.romanToInt("IX"));
+		assertEquals(29, RomanNumbers.romanToInt("XXIX"));
+		assertEquals(49, RomanNumbers.romanToInt("XLIX"));
+		assertEquals(99, RomanNumbers.romanToInt("XCIX"));
+		assertEquals(404, RomanNumbers.romanToInt("CDIV"));
+		assertEquals(909, RomanNumbers.romanToInt("CMIX"));
+		assertEquals(949, RomanNumbers.romanToInt("CMXLIX"));
+		assertEquals(3999, RomanNumbers.romanToInt("MMMCMXCIX"));
+		
+		
+		
 			
 	}
 	
