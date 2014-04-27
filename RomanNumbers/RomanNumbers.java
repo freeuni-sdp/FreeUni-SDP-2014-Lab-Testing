@@ -37,7 +37,7 @@ public class RomanNumbers {
 					str += getRomanValue(oneSymbolValues[i]);
 					number -= oneSymbolValues[i];
 				}
-
+				if(!getRomanValue(number).equals("")) break;
 			}
 
 			if (number == 0)
