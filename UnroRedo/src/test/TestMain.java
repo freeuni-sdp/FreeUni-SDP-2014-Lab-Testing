@@ -45,4 +45,11 @@ public class TestMain {
 		assertEquals(main.redo(), 2);
 		assertEquals(main.redo(), 3);
 	}
+	@Test
+	public void shouldNotRedoAfterCommand(){
+		main.command(1);
+		main.undo();
+		main.command(2);
+		assertEquals(main.redo(), main.ERROR);
+	}
 }

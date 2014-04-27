@@ -10,6 +10,7 @@ public class Main {
 	
 	public Main command(int command) {
 		commands.add(command);
+		undos.clear();
 		return this;
 	}
 	
@@ -25,7 +26,7 @@ public class Main {
 		if (undos.size() < 1) return ERROR;
 		int command = undos.get(undos.size() - 1);
 		undos.remove(undos.size() - 1);
-		this.command(command);
+		commands.add(command);
 		return command;
 	}
 	
