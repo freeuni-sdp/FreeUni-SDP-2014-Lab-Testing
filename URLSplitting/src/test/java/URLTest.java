@@ -39,4 +39,11 @@ public class URLTest {
         assertEquals("search", url.getPath());
     }
 
+    @Test
+    public void testURLWithTrailingSlash() {
+        URL url = URL.parse("http://amazon.com/");
+        assertEquals("amazon.com", url.getDomain());
+        assertEquals("", url.getPath());
+    }
+
 }
