@@ -13,7 +13,7 @@ public class NumberToStringFactory
 		String result = "";
 		if (position%3 == 1)
 		{
-			result += getDecade(amount);
+			result += getDecade(amount, position);
 			return result;
 		}
 		if (position%3 == 0)
@@ -49,6 +49,33 @@ public class NumberToStringFactory
 		
 		
 		return result;
+	}
+
+	public String getTeen(int teen) {
+		switch (teen) {
+		case 1:
+			return "eleven";
+		case 2:
+			return "twelve";
+		case 3:
+			return "thirteen";
+		case 4:
+			return "forteen";
+		case 5:
+			return "fifteen";
+		case 6:
+			return "sixteen";
+		case 7:
+			return "seventeen";
+		case 8:
+			return "eighteen";
+		case 9:
+			return "ninteen";
+
+		default:
+			break;
+		}
+		return null;
 	}
 
 	public String getDigit(int amount)
@@ -92,11 +119,17 @@ public class NumberToStringFactory
 		return "";
 	}
 
-	public String getDecade(int amount)
+	public String getDecade(int amount, int position)
 	{
 
 		if (amount == 1)
 		{
+			if (amount == 1) {
+				int teen = converter.checkTeen(position);
+				if (teen > 0) {
+					return getTeen(teen);
+				}
+			}
 			return "ten";
 		}
 		if (amount == 2)

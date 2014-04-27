@@ -20,13 +20,13 @@ public class TestCheckAmountConverter
 		factory = new NumberToStringFactory(converter);
 	}
 	
-//	@Test
+	@Test
 	public void testClassApi()
 	{
 		assertEquals("one must be equel to 1", "one", converter.convert(1));
 	}
 	
-//	@Test
+	@Test
 	public void testSimpleDecimalNumbers()
 	{
 		assertEquals("twenty one must be equal to 21", "twenty one", converter.convert(21));
@@ -48,10 +48,10 @@ public class TestCheckAmountConverter
 	@Test
 	public void testGetDecadeMethodInFactory()
 	{
-		assertEquals("twenty", factory.getDecade(2));
-		assertEquals("thirty", factory.getDecade(3));
-		assertEquals("forty", factory.getDecade(4));
-		assertEquals("ninty", factory.getDecade(9));
+		assertEquals("twenty", factory.getDecade(2, 0));
+		assertEquals("thirty", factory.getDecade(3, 0));
+		assertEquals("forty", factory.getDecade(4, 0));
+		assertEquals("ninty", factory.getDecade(9, 0));
 	}
 	
 	@Test
@@ -96,4 +96,12 @@ public class TestCheckAmountConverter
 		assertEquals("one billion ninty million", converter.convert(1090000000));
 	}
 	
+	@Test
+	public void testNumbersBetweenTenAndTwenty()
+	{
+		assertEquals("eleven", converter.convert(11));
+		assertEquals("ninteen", converter.convert(19));
+		assertEquals("fifteen", converter.convert(15));
+		assertEquals("twelve", converter.convert(12));
+	}
 }
