@@ -8,33 +8,23 @@ import static org.junit.Assert.assertTrue;
  */
 public class URLTest {
 
-    @Test
-    public void testParseReturnsNotNull() {
-        URL url = URL.parse("http://facebook.com");
-        assertTrue(url != null);
-    }
-
     @Test(expected = IllegalArgumentException.class)
     public void testParseThrowsExceptionWhenInputIsNull() {
         URL url = URL.parse(null);
     }
 
     @Test
-    public void testProtocol() {
-        URL url = URL.parse("http://apple.com");
-        assertEquals("http", url.getProtocol());
-    }
-
-    @Test
     public void testURLWhenPathIsEmpty() {
         URL url = URL.parse("http://google.com");
+        assertEquals("http", url.getProtocol());
         assertEquals("google.com", url.getDomain());
         assertEquals("", url.getPath());
     }
 
     @Test
     public void testURLWhenPathIsNotEmpty() {
-        URL url = URL.parse("http://google.com/search");
+        URL url = URL.parse("ftp://google.com/search");
+        assertEquals("ftp", url.getProtocol());
         assertEquals("google.com", url.getDomain());
         assertEquals("search", url.getPath());
     }
@@ -42,6 +32,7 @@ public class URLTest {
     @Test
     public void testURLWithTrailingSlash() {
         URL url = URL.parse("http://amazon.com/");
+        assertEquals("http", url.getProtocol());
         assertEquals("amazon.com", url.getDomain());
         assertEquals("", url.getPath());
     }
@@ -49,6 +40,7 @@ public class URLTest {
     @Test
     public void testURLWithMultipleSlashes() {
         URL url = URL.parse("http://www.google.com/search/images");
+        assertEquals("http", url.getProtocol());
         assertEquals("www.google.com", url.getDomain());
         assertEquals("search/images", url.getPath());
     }
