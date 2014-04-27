@@ -92,7 +92,24 @@ public class RomanNumbersTest {
 		assertEquals(3000, RomanNumbers.romanToInt("MMM"));
 	}
 	
+	@Test
+	public void testRomanToIntForOtherNumbersWithDifferentSymbols() {
+		assertEquals(11, RomanNumbers.romanToInt("XI"));
+		assertEquals(17, RomanNumbers.romanToInt("XVII"));
+		assertEquals(68, RomanNumbers.romanToInt("LXVIII"));
+		assertEquals(85, RomanNumbers.romanToInt("LXXXV"));
+		assertEquals(185, RomanNumbers.romanToInt("CLXXXV"));
+		assertEquals(176, RomanNumbers.romanToInt("CLXXVI"));
+		assertEquals(712, RomanNumbers.romanToInt("DCCXII"));
+		assertEquals(3767, RomanNumbers.romanToInt("MMMDCCLXVII"));		
+		
+	}
+	@Test
+	public void testRomanToIntForOtherNumbers() {
+		assertEquals(4, RomanNumbers.romanToInt("IV"));
 	
+			
+	}
 	
 
 }
