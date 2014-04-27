@@ -18,6 +18,9 @@ public class TrimmingTest {
 	public void testTabsAndEnterCases() {
 		assertEquals("lastOutput method should remove the tabs at the and of the string ", "tako", trm.lastOutput("tako\t"));
 		assertEquals("lastOutput method should remove the Enter at the end of the string ", "tako", trm.lastOutput("tako\n"));
+		assertEquals("lastOutput method should remove the space after ENTER ", "tako\njaparidze", trm.lastOutput("tako\n japaridze"));
+		assertEquals("lastOutput method should remove the space after TAB ", "tako\tjaparidze", trm.lastOutput("tako\t japaridze"));
+		
 	}
 
 }
