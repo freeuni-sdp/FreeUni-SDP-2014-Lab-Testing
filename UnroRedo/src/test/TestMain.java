@@ -2,13 +2,26 @@ package src.test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class TestMain {
+import src.Main;
 
+public class TestMain {
+	
+	private Main main;
+	
+	@Before
+	public void init(){
+		main = new Main();
+	}
+
+
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void shouldReturnTrueWhenUndoingLastCommand(){
+		main.command(1).command(2).command(3).command(4);
+		assertTrue(main.undo(4));
 	}
 
 }

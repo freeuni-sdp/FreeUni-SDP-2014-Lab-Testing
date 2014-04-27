@@ -1,15 +1,23 @@
 package src;
 
+import java.util.ArrayList;
+
 public class Main {
-	public void command(int command){
-		
+	ArrayList<Integer> commands = new ArrayList<>();
+	
+	public Main command(int command){
+		commands.add(command);
+		return this;
 	}
 	
-	public void undo(int command) {
-		
+	public boolean undo(int command) {
+		int lastCommand = commands.get(commands.size() - 1);
+		if (command != lastCommand) return false;
+		return true;
 	}
 	
-	public void redo(int command) {
+	public boolean redo(int command) {
 		
+		return false;
 	}
 }
