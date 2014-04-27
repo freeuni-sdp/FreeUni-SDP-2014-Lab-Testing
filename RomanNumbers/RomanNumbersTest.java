@@ -68,6 +68,19 @@ public class RomanNumbersTest {
 	}
 	
 	
+	@Test
+	public void testRomanToIntForNumbersWithOneSymbol() {
+		assertEquals(1, RomanNumbers.romanToInt("I"));
+		assertEquals(5, RomanNumbers.romanToInt("V"));
+		assertEquals(10, RomanNumbers.romanToInt("X"));
+		assertEquals(50, RomanNumbers.romanToInt("L"));
+		assertEquals(100, RomanNumbers.romanToInt("C"));
+		assertEquals(500, RomanNumbers.romanToInt("D"));
+		assertEquals(1000, RomanNumbers.romanToInt("M"));
+		
+	}
+	
+	
 	
 	
 

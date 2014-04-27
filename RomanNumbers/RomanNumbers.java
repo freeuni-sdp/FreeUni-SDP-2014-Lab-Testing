@@ -1,10 +1,10 @@
 public class RomanNumbers {
 
-	private static int oneSymbolValues[] = new int[] { 1, 4, 5, 9 , 10, 40, 50,90, 100, 400, 500,
-			900 , 1000 };
+	private static int oneSymbolValues[] = new int[] { 1, 4, 5, 9, 10, 40, 50,
+			90, 100, 400, 500, 900, 1000 };
 
 	private static String getRomanValue(int number) {
-		
+
 		switch (number) {
 		case 1:
 			return "I";
@@ -39,39 +39,64 @@ public class RomanNumbers {
 
 	}
 
-
 	public static String intToRoman(int number) {
 		String str = "";
-		
+
 		if (getRomanValue(number).equals("")) {
 
-			
 			for (int i = oneSymbolValues.length - 1; i >= 0; i--) {
 
-				
-				
-				while (number>=oneSymbolValues[i] && number != 0) {
-					
-					
+				while (number >= oneSymbolValues[i] && number != 0) {
+
 					str += getRomanValue(oneSymbolValues[i]);
 					number -= oneSymbolValues[i];
 
 				}
-			
+
 				if (!getRomanValue(number).equals(""))
 					return str + getRomanValue(number);
 			}
 
-			return str;			
+			return str;
 
 		} else
 			return getRomanValue(number);
 
 	}
 
+	private static int getIntValue(String roman) {
+
+		switch (roman) {
+		case "I":
+			return 1;
+		
+		case "V":
+			return 5;
+		
+		case "X":
+			return 10;
+	
+		case "L":
+			return 50;
+
+		case "C":
+			return 100;
+		
+		case "D":
+			return 500;
+	
+		case "M":
+			return 1000;
+
+		default:
+			return 0;
+		}
+
+	}
+
 	public static int romanToInt(String roman) {
 
-		return 0;
+		return getIntValue(roman);
 
 	}
 
