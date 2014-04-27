@@ -26,23 +26,27 @@ public class RomanNumbers {
 
 	}
 
+
 	public static String intToRoman(int number) {
 		String str = "";
-
+		
 		if (getRomanValue(number).equals("")) {
 
 			
 			for (int i = oneSymbolValues.length - 1; i >= 0; i--) {
 
 				
-				while (number % oneSymbolValues[i] == 0 && number != 0) {
-
+				
+				while (number>=oneSymbolValues[i] && number != 0) {
+					//int remain = number % oneSymbolValues[i];
+					
 					str += getRomanValue(oneSymbolValues[i]);
 					number -= oneSymbolValues[i];
 
 				}
+			
 				if (!getRomanValue(number).equals(""))
-					break;
+					return str + getRomanValue(number);
 			}
 
 			return str;			

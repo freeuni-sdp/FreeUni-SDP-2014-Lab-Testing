@@ -28,7 +28,6 @@ public class RomanNumbersTest {
 		assertEquals("XX", RomanNumbers.intToRoman(20));
 		assertEquals("CC", RomanNumbers.intToRoman(200));
 		assertEquals("MM", RomanNumbers.intToRoman(2000));
-
 		assertEquals("III", RomanNumbers.intToRoman(3));
 		assertEquals("XXX", RomanNumbers.intToRoman(30));
 		assertEquals("CCC", RomanNumbers.intToRoman(300));
@@ -37,8 +36,14 @@ public class RomanNumbersTest {
 	
 	@Test
 	public void testIntToRomanForOtherNumbersWithDifferentSymbols() {
-		assertEquals("IV", RomanNumbers.intToRoman(4));		
-		
+		assertEquals("XI", RomanNumbers.intToRoman(11));
+		assertEquals("XVII", RomanNumbers.intToRoman(17));
+		assertEquals("LXVIII", RomanNumbers.intToRoman(68));
+		assertEquals("LXXXV", RomanNumbers.intToRoman(85));
+		assertEquals("CLXXXV", RomanNumbers.intToRoman(185));
+		assertEquals("CLXXVI", RomanNumbers.intToRoman(176));
+		assertEquals("DCCXII", RomanNumbers.intToRoman(712));
+		assertEquals("MMMDCCLXVII", RomanNumbers.intToRoman(3767));		
 	}
 	
 	
