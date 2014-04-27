@@ -58,12 +58,20 @@ public class WordWrappingTest {
 		correctArrayList.add("ty");
 		assertEquals(WordWrapping.wordWrap("Univercity", 4), correctArrayList);
 		
-		
-		
 	}
 	
-	
-	
+
+	@Test
+	public void testForEmptyStringOrZeroLength(){
+		
+		ArrayList<String> correctArrayList = new ArrayList<>();
+		
+		assertEquals(WordWrapping.wordWrap("", 4), correctArrayList);
+		
+		correctArrayList = new ArrayList<>();
+		
+		assertEquals(WordWrapping.wordWrap("Text", 0), correctArrayList);
+	}
 	
 
 }

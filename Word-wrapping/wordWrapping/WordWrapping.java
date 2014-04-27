@@ -10,7 +10,9 @@ public class WordWrapping {
 	public static ArrayList<String> wordWrap(String text, int length){
 		ArrayList<String> resultStrings = new ArrayList<>();
 		
-		if(text.length() < length){
+		if(text.length() == 0 || length < 1){
+			return resultStrings;
+		}else if(text.length() < length){
 			resultStrings.add(text);
 		}else{
 			int startPos = 0;
