@@ -1,6 +1,7 @@
+
 public class RomanNumbers {
 
-	private static int oneSymbolValues[] = new int[] { 1, 4, 5, 9, 10, 40, 50,
+	private static int intValues[] = new int[] { 1, 4, 5, 9, 10, 40, 50,
 			90, 100, 400, 500, 900, 1000 };
 	
 	private static String RomanSymbols = "IVXLCDM";
@@ -47,12 +48,12 @@ public class RomanNumbers {
 
 		if (getRomanValue(number).equals("")) {
 
-			for (int i = oneSymbolValues.length - 1; i >= 0; i--) {
+			for (int i = intValues.length - 1; i >= 0; i--) {
 
-				while (number >= oneSymbolValues[i] && number != 0) {
+				while (number >= intValues[i] && number != 0) {
 
-					str += getRomanValue(oneSymbolValues[i]);
-					number -= oneSymbolValues[i];
+					str += getRomanValue(intValues[i]);
+					number -= intValues[i];
 
 				}
 
@@ -104,21 +105,37 @@ public class RomanNumbers {
 
 	public static int romanToInt(String roman) throws RomanNumbersException{
 		int returnValue = 0;
-		
+		int last = 4000;
+		int value = 0;
 		if(!isValid(roman)) throw new RomanNumbersException("contains invalid symbols");
 		for( int i =0 ; i <roman.length() ; i++){
+			
+			
 			int twoSymboledNumber =0;
 			
 			if(i+2<=roman.length()){
 				twoSymboledNumber = getIntValue(roman.substring(i,i+2));
+				
+				
 			}
-			if(twoSymboledNumber==0)
-			returnValue += getIntValue(roman.substring(i,i+1));
+			if(twoSymboledNumber==0){
+				value= getIntValue(roman.substring(i,i+1));
+				
+			}
 			else{
-				returnValue+=twoSymboledNumber;
+				value=twoSymboledNumber;
 				i++;
 			}
-
+			
+			
+			if(value >  last){
+			
+				throw new RomanNumbersException("invalid order");
+			}
+			else{
+				returnValue += value;
+				last = value;
+			}
 		}
 		return returnValue;
 

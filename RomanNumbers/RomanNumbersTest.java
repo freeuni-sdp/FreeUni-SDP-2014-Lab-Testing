@@ -125,6 +125,35 @@ public class RomanNumbersTest {
 	@Test (expected=RomanNumbersException.class)
 	public void testRomanToIntForInvalidSymbols() throws RomanNumbersException {
 		RomanNumbers.romanToInt("elene");
+		
+		
 	
 	}
+	
+	@Test  (expected=RomanNumbersException.class)
+	public void testRomanToIntForInvalidOrder1() throws RomanNumbersException {
+
+		System.out.println(RomanNumbers.romanToInt("IIX"));
+		
+
+		
+	
+	}
+	
+	@Test  (expected=RomanNumbersException.class)
+	public void testRomanToIntForInvalidOrder2() throws RomanNumbersException {
+
+		System.out.println(RomanNumbers.romanToInt("CCIIX"));
+	
+	}
+	
+	
+	@Test  (expected=RomanNumbersException.class)
+	public void testRomanToIntForInvalidOrder3() throws RomanNumbersException {
+
+		System.out.println(RomanNumbers.romanToInt("IM"));
+	
+	}
+	
+	
 }
