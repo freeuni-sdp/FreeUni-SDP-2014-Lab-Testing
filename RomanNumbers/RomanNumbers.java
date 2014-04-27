@@ -40,7 +40,7 @@ public class RomanNumbers {
 	}
 
 	public static String intToRoman(int number) throws RomanNumbersException {
-		
+		if(number<=0 || number>=4000) throw new RomanNumbersException("out of range");
 		String str = "";
 
 		if (getRomanValue(number).equals("")) {
