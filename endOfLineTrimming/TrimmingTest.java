@@ -9,6 +9,8 @@ public class TrimmingTest {
 	@Test
 	public void test() {
 		assertEquals("lastOutput method should return empty String ", "", trm.lastOutput(""));
+		assertEquals("lastOutput method should remove the space at the end ", "tako", trm.lastOutput("tako "));
+		
 	}
 
 }
