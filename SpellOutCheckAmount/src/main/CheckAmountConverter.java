@@ -7,21 +7,37 @@ public class CheckAmountConverter
 {
 	
 	private NumberToStringFactory factory;
-	private int request;
+	private long request;
 
 	public CheckAmountConverter()
 	{
 		factory = new NumberToStringFactory(this);
 	}
 
-	public String convert(int i)
+	public String convert(float requestAmount)
 	{
-		request = i;
+		request = (long)requestAmount;
 		String result = "";
 		StringBuilder sb = new StringBuilder();
-		String amount1 = String.valueOf(i);
-	
+		
+		String amount1 = Float.toString(requestAmount);
+		
+		boolean isInteger = amount1.indexOf(".") + 1 == amount1.length()-1 
+								&& amount1.charAt(amount1.indexOf(".") + 1) == '0';
+		
+		long newRequest = 0;
+		if (isInteger) {
+			newRequest = (long)requestAmount;
+			amount1 = Long.toString(newRequest);
+		}
+		
 		String amount = reverse(amount1);
+		
+		String decimal = amount1.substring(amount1.indexOf(".") == -1 ? amount1.length() : amount1.indexOf("."));
+		
+		decimal = decimal + " dollar";
+		amount = amount.substring(amount.indexOf(".")+1);
+		
 		ArrayList<String> words = new ArrayList<>();
 		for (int j = amount.length()-1; j >= 0; j--) 
 		{
@@ -60,12 +76,35 @@ public class CheckAmountConverter
 		}
 		
 		result = sb.toString();
+		if (amount1.indexOf(".") == -1) {
+			result += " dollar";
+		} else {
+			result += " and " + decimal;
+		}
 		return result;
 	}
 
 
 
-	private String nextSubStringDigit(String string) {
+	private String removeZeros(String amount1) {
+		String res = "";
+		
+		int i=amount1.length()-1;
+		while(true) {
+			if (amount1.charAt(i-1) != '0') {
+				try {
+					res = amount1.substring(0, i+1);
+					break;
+				} catch (Exception e) {
+				}
+			}
+			i--;
+		}
+		return res;
+	}
+
+	private String nextSubStringDigit(String string)
+	{
 		for (int i = 1; i < 10; i++)
 		{
 			if (string.indexOf(factory.getDigit(i)) == 0)

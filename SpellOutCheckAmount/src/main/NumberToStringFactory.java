@@ -4,7 +4,8 @@ public class NumberToStringFactory
 {
 	private CheckAmountConverter converter;
 
-	public NumberToStringFactory(CheckAmountConverter checkAmountConverter) {
+	public NumberToStringFactory(CheckAmountConverter checkAmountConverter) 
+	{
 		this.converter = checkAmountConverter;
 	}
 
@@ -23,7 +24,8 @@ public class NumberToStringFactory
 			
 			if (!hundreds.equals(""))
 			{
-				if (converter.hasNotHundreds(position)) {
+				if (converter.hasNotHundreds(position))
+				{
 					return result;
 				}
 				if (amount == 0) 
@@ -51,7 +53,8 @@ public class NumberToStringFactory
 		return result;
 	}
 
-	public String getTeen(int teen) {
+	public String getTeen(int teen)
+	{
 		switch (teen) {
 		case 1:
 			return "eleven";
