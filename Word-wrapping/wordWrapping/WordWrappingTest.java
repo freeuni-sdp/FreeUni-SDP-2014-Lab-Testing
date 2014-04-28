@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+
 import org.junit.Test;
 
 
@@ -116,6 +117,37 @@ public class WordWrappingTest {
 		correctArrayList.add("datserili aris");
 
 		assertEquals(WordWrapping.wordWrap("Davaleba titqmis datserili aris", 14), correctArrayList);
+	}
+	
+	
+	@Test
+	public void testForGeorgian(){
+		ArrayList<String> correctArrayList = new ArrayList<>();
+		correctArrayList.add("სალ");
+		correctArrayList.add("ომე");
+		assertEquals(WordWrapping.wordWrap("სალომე", 3), correctArrayList);
+		
+		correctArrayList = new ArrayList<>();
+		correctArrayList.add("სალო");
+		correctArrayList.add("მე");
+		assertEquals(WordWrapping.wordWrap("სალომე", 4), correctArrayList);
+		
+		correctArrayList = new ArrayList<>();
+		correctArrayList.add("ნიკა მი-");
+		correctArrayList.add("დის სკო-");
+		correctArrayList.add("ლაში");
+		assertEquals(WordWrapping.wordWrap("ნიკა მიდის სკოლაში", 8), correctArrayList);
+		
+		correctArrayList = new ArrayList<>();
+		correctArrayList.add("ნიკა");
+		correctArrayList.add("ჭკვიანი");
+		correctArrayList.add("ბიჭია და");
+		correctArrayList.add("კარგად");
+		correctArrayList.add("სწავლობს");
+		assertEquals(WordWrapping.wordWrap("ნიკა ჭკვიანი ბიჭია და კარგად სწავლობს", 8), correctArrayList);
+		
+		
+		
 	}
 
 }
