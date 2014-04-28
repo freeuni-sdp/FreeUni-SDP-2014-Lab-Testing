@@ -16,6 +16,15 @@ public class Rectangle {
 		this.r = new Point(this.l.getX() + width,
 				this.l.getY() + height);
 	}
+	boolean isInside(Point p){
+		return false;
+	}
+	public double getPerimeter(){
+		return 0;
+	}
+	public double getArea(){
+		return 0;
+	}
 	public double getWidht(){
 		return this.r.getX() - this.l.getX();
 	}
