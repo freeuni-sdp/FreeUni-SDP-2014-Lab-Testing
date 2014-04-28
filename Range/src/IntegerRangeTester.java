@@ -54,4 +54,18 @@ public class IntegerRangeTester {
 
 	}
 
+	@Test
+	public void intersectingRangesTest() throws UncorrectRangeException {
+		IntegerRange range1 = new IntegerRange(2, 7);
+		IntegerRange range2 = new IntegerRange(5, 9);
+		IntegerRange range3 = new IntegerRange(0, 4);
+		IntegerRange res1 = range1.intersectWithRange(range2);
+		IntegerRange res2 = range1.intersectWithRange(range3);
+		assertEquals(res1.getBegining(), 5);
+		assertEquals(res1.getEnd(), 7);
+		assertEquals(res2.getBegining(), 2);
+		assertEquals(res2.getEnd(), 4);
+
+	}
+
 }

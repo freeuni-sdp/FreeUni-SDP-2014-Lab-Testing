@@ -1,3 +1,5 @@
+import javax.swing.text.html.MinimalHTMLWriter;
+
 /**
  * integer range range means begining one integer including "[" end another excluding
  * ")"
@@ -54,8 +56,12 @@ public class IntegerRange {
 	 * 
 	 * @param range
 	 * @return
+	 * @throws UncorrectRangeException 
 	 */
-	public IntegerRange intersectWithRange(IntegerRange range) {
-		return null;
+	public IntegerRange intersectWithRange(IntegerRange range) throws UncorrectRangeException {
+		int resBegining = Math.max(range.getBegining(),begining);
+		int resEnd = Math.min(range.getEnd(),end);
+		IntegerRange res = new IntegerRange(resBegining,resEnd);
+		return res;
 	}
 }
