@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import source.Point;
 import source.Rectangle;
 
 public class RectangleTest {
@@ -17,5 +18,13 @@ public class RectangleTest {
 		r = new Rectangle(2.3, 2.3, 2.3, 2.3);
 		assertTrue(r.getArea() == 0);
 	}
-	
+	@Test
+	public void testPerimeter(){
+		Rectangle r = new Rectangle(0, 0, 2.3, 2.3);
+		assertTrue(r.getPerimeter() == 2.3 * 4);
+		r = new Rectangle(new Point(-1.5, -1.5), new Point(1.5, 2.5));
+		assertTrue(r.getPerimeter() == 14);
+		r = new Rectangle(new Point(-10, -10), 20, 20);
+		assertTrue(r.getPerimeter() == 80);
+	}
 }

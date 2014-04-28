@@ -20,7 +20,7 @@ public class Rectangle {
 		return false;
 	}
 	public double getPerimeter(){
-		return 0;
+		return (this.getWidht() + this.getHeight()) * 2;
 	}
 	public double getArea(){
 		return this.getHeight() * this.getWidht();
