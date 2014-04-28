@@ -27,7 +27,7 @@ public class TestCheckAmountConverter
 	}
 	
 	@Test
-	public void testSimpleDecimalNumbers()
+	public void testSimpleIntegerNumbers()
 	{
 		assertEquals("twenty one must be equal to 21", "twenty one dollar", converter.convert(21));
 		

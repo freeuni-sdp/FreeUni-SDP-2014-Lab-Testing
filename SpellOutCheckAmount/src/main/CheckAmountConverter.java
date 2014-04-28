@@ -84,25 +84,6 @@ public class CheckAmountConverter
 		return result;
 	}
 
-
-
-	private String removeZeros(String amount1) {
-		String res = "";
-		
-		int i=amount1.length()-1;
-		while(true) {
-			if (amount1.charAt(i-1) != '0') {
-				try {
-					res = amount1.substring(0, i+1);
-					break;
-				} catch (Exception e) {
-				}
-			}
-			i--;
-		}
-		return res;
-	}
-
 	private String nextSubStringDigit(String string)
 	{
 		for (int i = 1; i < 10; i++)
