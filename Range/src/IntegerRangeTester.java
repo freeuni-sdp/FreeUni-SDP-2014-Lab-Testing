@@ -30,9 +30,13 @@ public class IntegerRangeTester {
 	}
 
 	@Test(expected = UncorrectRangeException.class)
-	public void uncorrectRangeTest() throws UncorrectRangeException {
-		IntegerRange range1 = new IntegerRange(2, 1);
+	public void uncorrectRangeTest1() throws UncorrectRangeException {
 		IntegerRange range2 = new IntegerRange(1, 1);
+	}
+
+	@Test(expected = UncorrectRangeException.class)
+	public void uncorrectRangeTest2() throws UncorrectRangeException {
+		IntegerRange range1 = new IntegerRange(2, 1);
 	}
 
 	@Test
@@ -57,15 +61,39 @@ public class IntegerRangeTester {
 	@Test
 	public void intersectingRangesTest() throws UncorrectRangeException {
 		IntegerRange range1 = new IntegerRange(2, 7);
-		IntegerRange range2 = new IntegerRange(5, 9);
+		IntegerRange range2 = new IntegerRange(6, 9);
 		IntegerRange range3 = new IntegerRange(0, 4);
 		IntegerRange res1 = range1.intersectWithRange(range2);
 		IntegerRange res2 = range1.intersectWithRange(range3);
-		assertEquals(res1.getBegining(), 5);
+		assertEquals(res1.getBegining(), 6);
 		assertEquals(res1.getEnd(), 7);
 		assertEquals(res2.getBegining(), 2);
 		assertEquals(res2.getEnd(), 4);
 
+	}
+
+	@Test(expected = UncorrectRangeException.class)
+	public void unIntersectingRangesIntersectTest1()
+			throws UncorrectRangeException {
+		IntegerRange range1 = new IntegerRange(2, 7);
+		IntegerRange range2 = new IntegerRange(7, 9);
+		range1.intersectWithRange(range2);
+	}
+
+	@Test(expected = UncorrectRangeException.class)
+	public void unIntersectingRangesIntersectTest2()
+			throws UncorrectRangeException {
+		IntegerRange range1 = new IntegerRange(2, 7);
+		IntegerRange range2 = new IntegerRange(0, 2);
+		range1.intersectWithRange(range2);
+	}
+
+	@Test(expected = UncorrectRangeException.class)
+	public void unIntersectingRangesIntersectTest3()
+			throws UncorrectRangeException {
+		IntegerRange range1 = new IntegerRange(2, 7);
+		IntegerRange range2 = new IntegerRange(7, 9);
+		range1.intersectWithRange(range2);
 	}
 
 }

@@ -1,15 +1,14 @@
-import javax.swing.text.html.MinimalHTMLWriter;
 
 /**
- * integer range range means begining one integer including "[" end another excluding
+ * range  is set of integers from one integer including "[" to another excluding
  * ")"
- * 
+ * where beginning must be less then ending
  * @author saba
  * 
  */
 public class IntegerRange {
 	// integer from where begins the range
-	private int begining;
+	private int beginning;
 	// integer where (excluding) ends the range
 	private int end;
 
@@ -22,17 +21,17 @@ public class IntegerRange {
 	 * @param end
 	 * @throws UncorrectRangeException
 	 */
-	public IntegerRange(int begining, int end) throws UncorrectRangeException {
-		if (begining >= end) {
-			throw new UncorrectRangeException("begining : " + begining + " end " + end
+	public IntegerRange(int beginning, int end) throws UncorrectRangeException {
+		if (beginning >= end) {
+			throw new UncorrectRangeException("begining : " + beginning + " end " + end
 					+ "is not correct range");
 		}
 		this.end = end;
-		this.begining = begining;
+		this.beginning = beginning;
 	}
 	
 	public int getBegining() {
-		return begining;
+		return beginning;
 	}
 	
 	public int getEnd() {
@@ -45,7 +44,7 @@ public class IntegerRange {
 	 * @return
 	 */
 	boolean isInRange(int num) {
-		if (num >= begining && num < end) {
+		if (num >= beginning && num < end) {
 			return true;
 		}
 		return false;
@@ -59,7 +58,7 @@ public class IntegerRange {
 	 * @throws UncorrectRangeException 
 	 */
 	public IntegerRange intersectWithRange(IntegerRange range) throws UncorrectRangeException {
-		int resBegining = Math.max(range.getBegining(),begining);
+		int resBegining = Math.max(range.getBegining(),beginning);
 		int resEnd = Math.min(range.getEnd(),end);
 		IntegerRange res = new IntegerRange(resBegining,resEnd);
 		return res;
