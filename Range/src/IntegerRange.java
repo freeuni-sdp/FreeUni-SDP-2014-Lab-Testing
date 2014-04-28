@@ -1,5 +1,5 @@
 /**
- * integer range range means from one integer including "[" to another excluding
+ * integer range range means begining one integer including "[" end another excluding
  * ")"
  * 
  * @author saba
@@ -7,33 +7,43 @@
  */
 public class IntegerRange {
 	// integer from where begins the range
-	int from;
+	private int begining;
 	// integer where (excluding) ends the range
-	int to;
+	private int end;
 
+	
 	/**
 	 * constructor
 	 * checks if range is correct
 	 * if not throws UncorrectRangeException
-	 * @param from
-	 * @param to
+	 * @param begining
+	 * @param end
 	 * @throws UncorrectRangeException
 	 */
-	public IntegerRange(int from, int to) throws UncorrectRangeException {
-		if (from >= to) {
-			throw new UncorrectRangeException("from : " + from + " to " + to
+	public IntegerRange(int begining, int end) throws UncorrectRangeException {
+		if (begining >= end) {
+			throw new UncorrectRangeException("begining : " + begining + " end " + end
 					+ "is not correct range");
 		}
-		this.to = to;
-		this.from = from;
+		this.end = end;
+		this.begining = begining;
 	}
+	
+	public int getBegining() {
+		return begining;
+	}
+	
+	public int getEnd() {
+		return end;
+	}
+	
 	/**
 	 * checks if number is in this range
 	 * @param num
 	 * @return
 	 */
 	boolean isInRange(int num) {
-		if (num >= from && num < to) {
+		if (num >= begining && num < end) {
 			return true;
 		}
 		return false;
@@ -46,7 +56,6 @@ public class IntegerRange {
 	 * @return
 	 */
 	public IntegerRange intersectWithRange(IntegerRange range) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
