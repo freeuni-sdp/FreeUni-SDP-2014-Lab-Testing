@@ -5,12 +5,18 @@
  *
  */
 public class IntegerRange{
-	
+	//integer where the from
+	int from; 
+	int to;
 	public IntegerRange(int from,int to) {
-		
+		this.to = to;
+		this.from = from;
 	}
 
 	boolean isInRange(int num){
+		if(num>=from && num<to){
+			return true;
+		}
 		return false;
 	}
 	
