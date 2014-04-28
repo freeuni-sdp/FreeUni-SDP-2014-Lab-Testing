@@ -23,7 +23,7 @@ public class Rectangle {
 		return 0;
 	}
 	public double getArea(){
-		return 0;
+		return this.getHeight() * this.getWidht();
 	}
 	public double getWidht(){
 		return this.r.getX() - this.l.getX();
