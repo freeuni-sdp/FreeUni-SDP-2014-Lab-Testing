@@ -11,7 +11,7 @@ import org.junit.Test;
 public class IntegerRangeTester {
 
 	@Test
-	public void inRangeTest() {
+	public void inRangeTest() throws UncorrectRangeException {
 		IntegerRange range = new IntegerRange(0, 5);
 		assertTrue(range.isInRange(3));
 		assertTrue(range.isInRange(4));
@@ -19,7 +19,7 @@ public class IntegerRangeTester {
 	}
 
 	@Test
-	public void criticalPointsinRangeTest() {
+	public void criticalPointsinRangeTest() throws UncorrectRangeException {
 		IntegerRange range = new IntegerRange(-1, 7);
 		assertTrue(range.isInRange(-1));
 		assertTrue(range.isInRange(6));
