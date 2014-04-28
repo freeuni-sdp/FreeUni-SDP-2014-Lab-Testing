@@ -27,4 +27,14 @@ public class RectangleTest {
 		r = new Rectangle(new Point(-10, -10), 20, 20);
 		assertTrue(r.getPerimeter() == 80);
 	}
+	@Test
+	public void testIsInside(){
+		Point p = new Point(0, 0);
+		Rectangle r = new Rectangle(-1, -1, 2, 3);
+		assertTrue(r.isInside(p));
+		p.setX(2.1);
+		assertFalse(r.isInside(p));
+		p = new Point(-1, -1);
+		assertTrue(r.isInside(p));
+	}
 }

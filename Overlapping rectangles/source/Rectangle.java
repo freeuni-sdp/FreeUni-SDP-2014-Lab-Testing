@@ -16,8 +16,9 @@ public class Rectangle {
 		this.r = new Point(this.l.getX() + width,
 				this.l.getY() + height);
 	}
-	boolean isInside(Point p){
-		return false;
+	public boolean isInside(Point p){
+		return (p.getX() >= l.getX() && p.getY() >= l.getY() 
+			&& p.getX() <= r.getX() && p.getY() <= r.getY());
 	}
 	public double getPerimeter(){
 		return (this.getWidht() + this.getHeight()) * 2;
