@@ -63,4 +63,17 @@ public class QueueTest {
 		q.enqueue(item);
 		assertEquals(item, q.dequeue());
 	}
+	
+	@Test
+	public void threeEnqueuedItemsShouldBeDequeuedInFIFOOrder() throws Exception {
+		Integer item1 = new Integer(1);
+		Integer item2 = new Integer(2);
+		Integer item3 = new Integer(3);
+		q.enqueue(item1);
+		q.enqueue(item2);
+		q.enqueue(item3);
+		assertEquals(item1, q.dequeue());
+		assertEquals(item2, q.dequeue());
+		assertEquals(item3, q.dequeue());
+	}
 }
