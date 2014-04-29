@@ -44,4 +44,10 @@ public class QueueTest {
 	public void isEmptyShouldBeTrueWhenQueueSizeIsZero() throws Exception {
 		assertTrue(q.isEmpty());
 	}
+	
+	@Test
+	public void isEmptyShouldBeFalseWhenQueueIsNotEmpty() throws Exception {
+		q.enqueue(1);
+		assertFalse(q.isEmpty());
+	}
 }
