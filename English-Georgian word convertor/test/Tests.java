@@ -12,5 +12,11 @@ public class Tests {
 		EnglishToGeorgianConverter converter = new EnglishToGeorgianConverter();
 		assertEquals("გიორგი მამალაძე", converter.convert("giorgi mamalaZe"));
 	}
+	
+	@Test
+	public void testCase2() {
+		EnglishToGeorgianConverter converter = new EnglishToGeorgianConverter();
+		assertEquals("ჯოტია ცაავა", converter.convert("jotia caava"));
+	}
 
 }

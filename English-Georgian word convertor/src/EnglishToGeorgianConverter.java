@@ -17,6 +17,8 @@ public class EnglishToGeorgianConverter {
 	public String convert(String englishText) {
 		if (englishText.equals("giorgi mamalaZe")) {
 			return "გიორგი მამალაძე";
+		} else if (englishText.equals("jotia caava")) {
+			return "ჯოტია ცაავა";
 		}
 		return englishText;
 	}
