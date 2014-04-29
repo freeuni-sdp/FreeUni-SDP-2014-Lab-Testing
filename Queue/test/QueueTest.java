@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import src.EmptyQueueException;
 import src.Queue;
 
 public class QueueTest {
@@ -49,5 +50,10 @@ public class QueueTest {
 	public void isEmptyShouldBeFalseWhenQueueIsNotEmpty() throws Exception {
 		q.enqueue(1);
 		assertFalse(q.isEmpty());
+	}
+	
+	@Test(expected=EmptyQueueException.class)
+	public void dequeueShouldThrowEmptyQueueExceptionWhenQueueIsEmpty() throws Exception {
+		q.dequeue();
 	}
 }
