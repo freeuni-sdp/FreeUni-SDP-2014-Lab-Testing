@@ -10,11 +10,11 @@ import src.Queue;
 
 public class QueueTest {
 	
-	private Queue q;
+	private Queue<Integer> q;
 
 	@Before
 	public void setUp() throws Exception {
-		q = new Queue();
+		q = new Queue<Integer>();
 	}
 	
 	@After
@@ -31,5 +31,12 @@ public class QueueTest {
 	public void sizeShouldBeOneWhenAnItemIsEnqueued() throws Exception {
 		q.enqueue(1);
 		assertEquals(1, q.size());
+	}
+	
+	@Test
+	public void sizeShouldBeDecreasedWhenAnItemIsDequeued() throws Exception {
+		q.enqueue(1);
+		q.dequeue();
+		assertEquals(0, q.size());
 	}
 }
