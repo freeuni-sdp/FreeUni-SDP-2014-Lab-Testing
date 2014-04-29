@@ -19,4 +19,13 @@ public class MultiMapTest {
 		mp.put(1, new ArrayList<String>());
 		assertEquals(new Integer(1), mp.get().get(0));
 	}
+	
+	@Test
+	public void testSizeForNotEmptyMap(){
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		for(int i = 0; i < 5; i++){
+			mp.put(i, new ArrayList<Integer>());
+		}
+		assertEquals(5, mp.size());
+	}
 }

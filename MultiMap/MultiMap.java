@@ -13,7 +13,7 @@ public class MultiMap<K, V extends List<?>> {
 	}
 	
 	public int size(){
-		return 0;
+		return keys.size();
 	}
 	
 	public void put(K key, V value){
