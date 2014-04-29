@@ -13,12 +13,17 @@ public class OverlappingRectanglesTest {
 	@Test
 	public void test() {
 		Rectangle a = new Rectangle(new Point(0, 0), new Point(10, 10));
-		Rectangle b = new Rectangle(new Point(5, 5), new Point(20, 22));
+		Rectangle b = new Rectangle(new Point(-1, -1), new Point(0, 0));
 		assertTrue(OverlappingRectangles.Check(a, b));
 		b = new Rectangle(-1, -1, 11.2, 11.2);
 		assertTrue(OverlappingRectangles.Check(a, b));
 		b = new Rectangle(1.1, 1.5, 2.3, 2.3);
 		assertTrue(OverlappingRectangles.Check(a, b));
+		b = new Rectangle(-1.1, 1.1, 11.2, 9.2);
+		assertTrue(OverlappingRectangles.Check(a, b));
+		b = new Rectangle(10.1, 10.1, 20, 20);
+		assertFalse(OverlappingRectangles.Check(a, b));
+		
 	}
-
+	
 }
