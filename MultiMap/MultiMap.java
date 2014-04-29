@@ -17,8 +17,8 @@ public class MultiMap<K, V extends List<?>> {
 	}
 	
 	public void put(K key, V value){
-		if(key == null)
-			throw new NullPointerException("Null Key Is Not Allowed");
+		if(key == null || value == null)
+			throw new NullPointerException("Key and Value must not be null");
 		keys.add(key);
 		values.add(value);
 	}
