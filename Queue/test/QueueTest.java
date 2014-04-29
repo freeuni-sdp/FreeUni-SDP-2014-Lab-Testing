@@ -26,4 +26,10 @@ public class QueueTest {
 	public void sizeShouldBeZeroWhenQueueIsEmpty() throws Exception {
 		assertEquals(0, q.size());
 	}
+	
+	@Test
+	public void sizeShouldBeOneWhenAnItemIsEnqueued() throws Exception {
+		q.enqueue(1);
+		assertEquals(1, q.size());
+	}
 }
