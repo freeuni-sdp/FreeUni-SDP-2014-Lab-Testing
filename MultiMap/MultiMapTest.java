@@ -71,4 +71,17 @@ public class MultiMapTest {
 		MultiMap<String, List<Integer>> mp = new MultiMap<String, List<Integer>>();
 		assertEquals(0, mp.valueCount());
 	}
+	
+	@Test
+	public void testTotalNumberOfValuesForNotEmptyMap(){
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		List<Integer> l = new ArrayList<Integer>();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		mp.put(1, l);
+		assertEquals(l.size(), mp.valueCount());
+		mp.put(2, l);
+		assertEquals(2*l.size(), mp.valueCount());
+	}
 }

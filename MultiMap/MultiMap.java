@@ -28,7 +28,10 @@ public class MultiMap<K, V extends List<?>> {
 	}
 	
 	public int valueCount(){
-		return 0;
+		int counter = 0;
+		for(int i = 0; i < values.size(); i++)
+			counter += values.get(i).size();
+		return counter;
 	}
 	
 	public boolean isEmpty(){
