@@ -11,4 +11,8 @@ public class Queue<T> {
 	public void enqueue(T element) {
 		size++;
 	}
+
+	public void dequeue() {
+		size--;
+	}
 }
