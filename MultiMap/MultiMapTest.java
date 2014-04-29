@@ -53,4 +53,35 @@ public class MultiMapTest {
 		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
 		mp.put(1,null);
 	}
+	@Test
+	public void testWhatIPutIsWhatIGetForBigNumbers(){
+		Set<Integer> s1 = new HashSet<Integer>();
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		for(int i = 0; i < 1000; i++){
+			mp.put(i, new ArrayList<Integer>());
+			s1.add(i);
+		}
+		Set<Integer> s2 = new HashSet<Integer>();
+		s2.addAll(mp.get());
+		assertTrue(s1.equals(s2));
+	}
+	
+	@Test
+	public void testTotalNumberOfValuesForEmptyMap(){
+		MultiMap<String, List<Integer>> mp = new MultiMap<String, List<Integer>>();
+		assertEquals(0, mp.valueCount());
+	}
+	
+	@Test
+	public void testTotalNumberOfValuesForNotEmptyMap(){
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		List<Integer> l = new ArrayList<Integer>();
+		l.add(1);
+		l.add(2);
+		l.add(3);
+		mp.put(1, l);
+		assertEquals(l.size(), mp.valueCount());
+		mp.put(2, l);
+		assertEquals(2*l.size(), mp.valueCount());
+	}
 }
