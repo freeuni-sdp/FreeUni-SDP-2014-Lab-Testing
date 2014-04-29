@@ -58,8 +58,8 @@ public class MultiMapTest {
 		List<Integer> s1 = new ArrayList<Integer>();
 		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
 		for(int i = 0; i < 10; i++){
-			mp.put(1, new ArrayList<Integer>());
-			s1.add(1);
+			mp.put(i, new ArrayList<Integer>());
+			s1.add(i);
 		}
 		assertTrue(s1.equals(mp.get()));
 	}
@@ -84,6 +84,10 @@ public class MultiMapTest {
 	}
 	
 	@Test
-	public void testDuplicatedValuesAreNotAllowed(){
+	public void testDuplicatedKeysAreNotAllowed(){
+		MultiMap<String, List<Integer>> mp = new MultiMap<String, List<Integer>>();
+		mp.put("one", new ArrayList<Integer>());
+		mp.put("one", new ArrayList<Integer>());
+		assertEquals(1, mp.get().size());
 	}
 }

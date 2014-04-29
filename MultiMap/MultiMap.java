@@ -21,9 +21,15 @@ public class MultiMap<K, V extends List<?>> {
 	public void put(K key, V value){
 		if(key == null || value == null)
 			throw new NullPointerException("Key and Value must not be null");
-		keys.add(key);
-		values.add(value);
-		valueCounter += value.size();
+		if(!keys.contains(key)){
+			keys.add(key);
+			values.add(value);
+			valueCounter += value.size();
+		}else{
+			int keyPos = keys.indexOf(key);
+			valueCounter += value.size() - values.get(keyPos).size();
+			values.set(keyPos, value);
+		}
 	}
 	
 	public List<K> get(){
