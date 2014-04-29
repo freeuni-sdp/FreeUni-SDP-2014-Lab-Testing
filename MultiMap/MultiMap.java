@@ -24,4 +24,8 @@ public class MultiMap<K, V extends List<?>> {
 	public List<K> get(){
 		return (List<K>) keys.clone();
 	}
+	
+	public boolean isEmpty(){
+		return true;
+	}
 }

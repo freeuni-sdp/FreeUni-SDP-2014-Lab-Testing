@@ -28,4 +28,10 @@ public class MultiMapTest {
 		}
 		assertEquals(5, mp.size());
 	}
+	
+	@Test
+	public void testThatEmptyMapIsEmpty(){
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		assertTrue(mp.isEmpty());
+	}
 }
