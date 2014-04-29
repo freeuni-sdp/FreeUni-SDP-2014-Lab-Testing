@@ -17,6 +17,8 @@ public class OverlappingRectanglesTest {
 		assertTrue(OverlappingRectangles.Check(a, b));
 		b = new Rectangle(-1, -1, 11.2, 11.2);
 		assertTrue(OverlappingRectangles.Check(a, b));
+		b = new Rectangle(1.1, 1.5, 2.3, 2.3);
+		assertTrue(OverlappingRectangles.Check(a, b));
 	}
 
 }

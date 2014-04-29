@@ -44,5 +44,13 @@ public class Rectangle {
 	public void setR(Point r) {
 		this.r = r;
 	}
+	public Point[] getVertices(){
+		Point[] arr = new Point[4];//create array of vertices
+		arr[0] = this.l;
+		arr[1] = new Point(this.l.getX() + this.getWidht(), this.l.getY());
+		arr[2] = new Point(this.l.getX(), this.l.getY() + this.getHeight());
+		arr[3] = this.r;
+		return arr;
+	}
 	
 }
