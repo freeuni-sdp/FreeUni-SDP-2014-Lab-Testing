@@ -43,9 +43,14 @@ public class MultiMapTest {
 	}
 	
 	@Test(expected = NullPointerException.class)
-	public void testNullKeyThrowException(){
+	public void testNullKeyCausesException(){
 		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
 		mp.put(null, new LinkedList<Integer>());
 	}
 	
+	@Test(expected = NullPointerException.class)
+	public void testNullValueCausesException(){
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		mp.put(1,null);
+	}
 }
