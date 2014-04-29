@@ -56,4 +56,11 @@ public class QueueTest {
 	public void dequeueShouldThrowEmptyQueueExceptionWhenQueueIsEmpty() throws Exception {
 		q.dequeue();
 	}
+	
+	@Test
+	public void enqueuedItemShouldBeDequeued() throws Exception {
+		Integer item = new Integer(1);
+		q.enqueue(item);
+		assertEquals(item, q.dequeue());
+	}
 }
