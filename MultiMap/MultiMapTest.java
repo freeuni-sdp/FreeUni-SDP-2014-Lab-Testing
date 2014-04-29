@@ -34,4 +34,11 @@ public class MultiMapTest {
 		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
 		assertTrue(mp.isEmpty());
 	}
+	
+	@Test
+	public void testThatNotEmptyMapIsNotEmpty(){
+		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
+		mp.put(1, new LinkedList<Integer>());
+		assertFalse(mp.isEmpty());
+	}
 }

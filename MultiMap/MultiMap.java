@@ -26,6 +26,6 @@ public class MultiMap<K, V extends List<?>> {
 	}
 	
 	public boolean isEmpty(){
-		return true;
+		return keys.size() == 0;
 	}
 }
