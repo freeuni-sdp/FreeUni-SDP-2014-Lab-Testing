@@ -3,6 +3,7 @@ package src;
 public class Queue<T> {
 	
 	private int size = 0;
+	private T element;
 
 	public int size() {
 		return size;
@@ -10,12 +11,15 @@ public class Queue<T> {
 
 	public void enqueue(T element) {
 		size++;
+		this.element = element;
 	}
 
-	public void dequeue() {
+	public T dequeue() {
 		if (size == 0)
 			throw new EmptyQueueException();
 		size--;
+		
+		return element;
 	}
 
 	public boolean isEmpty() {
