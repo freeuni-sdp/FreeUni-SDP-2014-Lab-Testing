@@ -27,6 +27,10 @@ public class MultiMap<K, V extends List<?>> {
 		return (List<K>) keys.clone();
 	}
 	
+	public int valueCount(){
+		return 0;
+	}
+	
 	public boolean isEmpty(){
 		return keys.size() == 0;
 	}

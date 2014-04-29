@@ -65,4 +65,10 @@ public class MultiMapTest {
 		s2.addAll(mp.get());
 		assertTrue(s1.equals(s2));
 	}
+	
+	@Test
+	public void testTotalNumberOfValuesForEmptyMap(){
+		MultiMap<String, List<Integer>> mp = new MultiMap<String, List<Integer>>();
+		assertEquals(0, mp.valueCount());
+	}
 }
