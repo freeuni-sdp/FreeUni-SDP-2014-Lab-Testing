@@ -13,6 +13,8 @@ public class Queue<T> {
 	}
 
 	public void dequeue() {
+		if (size == 0)
+			throw new EmptyQueueException();
 		size--;
 	}
 
