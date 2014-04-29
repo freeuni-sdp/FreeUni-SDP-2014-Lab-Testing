@@ -55,15 +55,13 @@ public class MultiMapTest {
 	}
 	@Test
 	public void testWhatIPutIsWhatIGetForBigNumbers(){
-		Set<Integer> s1 = new HashSet<Integer>();
+		List<Integer> s1 = new ArrayList<Integer>();
 		MultiMap<Integer, List<Integer>> mp = new MultiMap<Integer, List<Integer>>();
-		for(int i = 0; i < 1000; i++){
-			mp.put(i, new ArrayList<Integer>());
-			s1.add(i);
+		for(int i = 0; i < 10; i++){
+			mp.put(1, new ArrayList<Integer>());
+			s1.add(1);
 		}
-		Set<Integer> s2 = new HashSet<Integer>();
-		s2.addAll(mp.get());
-		assertTrue(s1.equals(s2));
+		assertTrue(s1.equals(mp.get()));
 	}
 	
 	@Test
@@ -83,5 +81,9 @@ public class MultiMapTest {
 		assertEquals(l.size(), mp.valueCount());
 		mp.put(2, l);
 		assertEquals(2*l.size(), mp.valueCount());
+	}
+	
+	@Test
+	public void testDuplicatedValuesAreNotAllowed(){
 	}
 }
