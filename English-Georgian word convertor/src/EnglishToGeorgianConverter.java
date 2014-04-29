@@ -15,12 +15,12 @@ public class EnglishToGeorgianConverter {
 	 * @return Georgian text
 	 */
 	public String convert(String englishText) {
-		if (englishText.equals("giorgi mamalaZe")) {
-			return "გიორგი მამალაძე";
-		} else if (englishText.equals("jotia caava")) {
-			return "ჯოტია ცაავა";
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < englishText.length(); i++) {
+			String value = map.containsKey(""+englishText.charAt(i)) ? map.get(""+englishText.charAt(i)) : "" +englishText.charAt(i);
+			sb.append(value);
 		}
-		return englishText;
+		return sb.toString();
 	}
 	
 	
