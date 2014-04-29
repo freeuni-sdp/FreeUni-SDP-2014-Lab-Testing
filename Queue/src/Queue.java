@@ -4,29 +4,25 @@ import java.util.ArrayList;
 
 public class Queue<T> {
 	
-	private int size = 0;
-	private T element;
 	private ArrayList<T> elements = new ArrayList<T>();
+	private static final int FIRST_ITEM_IN_QUEUE = 0;
 
 	public int size() {
-		return size;
+		return elements.size();
 	}
 
 	public void enqueue(T element) {
-		size++;
-		this.element = element;
 		elements.add(element);
 	}
 
 	public T dequeue() {
-		if (size == 0)
+		if (elements.isEmpty())
 			throw new EmptyQueueException();
-		size--;
 		
-		return elements.remove(0);
+		return elements.remove(FIRST_ITEM_IN_QUEUE);
 	}
 
 	public boolean isEmpty() {
-		return size == 0;
+		return elements.isEmpty();
 	}
 }
