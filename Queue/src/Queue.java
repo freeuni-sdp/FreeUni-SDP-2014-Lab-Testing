@@ -15,4 +15,8 @@ public class Queue<T> {
 	public void dequeue() {
 		size--;
 	}
+
+	public boolean isEmpty() {
+		return true;
+	}
 }
